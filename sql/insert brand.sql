@@ -1,13 +1,16 @@
+---- insert 전 BRAND_SEQ 초기화
 --SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME='BRAND_SEQ';
---ALTER SEQUENCE BRAND_SEQ INCREMENT BY -1;
+---- -(currval+1)로 변경
 --SELECT BRAND_SEQ.currval FROM DUAL;
+--ALTER SEQUENCE BRAND_SEQ INCREMENT BY -29;
 --SELECT BRAND_SEQ.nextval FROM DUAL;
 --ALTER SEQUENCE BRAND_SEQ INCREMENT BY 1;
+--SELECT BRAND_SEQ.currval FROM DUAL;
+--
 --commit;
---
-----
+
 --delete from brand where 1=1;
---
+
 set define off
 insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.currval, (select distinct id from brand_type where name like 'fashion'), 'TIME', 'POETIC SCENES', '1993년 런칭한 브랜드 TIME은 섬세하고 주의 깊은 시선, 일상적이면서 매혹적인 우아함으로<br>타임 만의 궤도를 그리며 시대에 맞는 새로운 모습을 제안합니다.<br>당당하고 품격있는 라이프스타일을 지닌 현대 여성들을 위한 세련되고 정제된 실루엣과 고급스러운 소재,<br>최상의 제품력으로 타임리스한 브랜드 가치를 완성합니다.<br>런칭 이후 브랜드 인지도와 제품 신뢰도에 있어 독보적인 영역을 만들어 국내 여성복 마켓을 선도하는 브랜드입니다.');
 insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.nextval, (select distinct id from brand_type where name like 'fashion'), 'MINE', 'ARTISTIC FEMININITY', 'MINE은 Artistic한 감성을 바탕으로 쿠틔르적 섬세함과 품격을 미니멀하게 표현하여 여성스러움을 보다 세련되고 아트적인 느낌으로 연출합니다. 섬세한 여성의 마인드를 고급스럽고 엘레강스한 감성으로 표현하며 고유의 컨셉에 트랜드를 가미,다양한 변화를 제안합니다. 1988년 런칭 이후 현재까지 명성을 이어오는 국내 최초의 캐릭터 브랜드로써 뚜렸한 컨셉과 정체성을 제안하며 지속적으로 사랑 받고 있는 브랜드입니다.');
@@ -38,7 +41,11 @@ insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.nextval
 insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.nextval, (select distinct id from brand_type where name like 'fashion'), 'FOURM THE STORE', 'UNIQUE TRENDY CASUAL', '2017년 런칭한 FOURM THE STORE는 모던하고 시크한 캐주얼을 중심으로<br>다양한 스타일을 믹스매치해 개성있는 룩을 제안하는 편집숍입니다. FOURM ¼은 현대백화점 전용 편집숍으로, 현대백화점과 한섬이 추구하는 특별한<br>가치와 새로운 경험을 제공합니다.');
 insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.nextval, (select distinct id from brand_type where name like 'fashion'), 'FOURM MEN’S LOUNGE', 'MODERN CLASSIC HERITAGE', '2016년 오픈한 FOURM MEN’S LOUNGE는 클래식 헤리티지와 모던한 감각을<br>믹스하는 세련된 남성들을 위한 편집숍입니다. FOURM ¼은 현대백화점 전용 편집숍으로, 현대백화점과 한섬이 추구하는 특별한<br>가치와 새로운 경험을 제공합니다.');
 
-select * from brand order by 1;
+insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.nextval, (select distinct id from brand_type where name like 'beauty'), 'OERA', 'THE JOURNEY TO ETERNAL BEAUTY', '오에라는 스위스의 정교한 기술력을 바탕으로 탄생한 스킨케어 브랜드로,<br>새로운 관점에서 미적 기준을 제시하는 럭셔리 리추얼 스킨케어를 추구합니다.<br>오에라의 핵심 원동력은 다양한 연구 결과를 적용한 독자 성분 크로노 엘릭서™와<br>흐트러진 피부 리듬을 케어해 피부 본연의 리듬을 바로 잡는 캘리브레이팅™ 시스템입니다.<br>이는 피부가 균형점, Zero-Balance Point에 도달할 수 있도록 이끌어주며<br>외부 자극에도 쉽게 흔들리지 않는 진정한 아름다움을 선사합니다.');
 
+insert into brand(id, type, name, brand_ss, brand_desc) VALUES(brand_seq.nextval, (select distinct id from brand_type where name like 'lifeStyle'), 'the CASHMERE THINGS', 'SUSTAINABLE &amp; VALUABLE LIFESTYLE', 'the CASHMERE THINGS는 삶의 진정한 의미를 심플하고 간결하게 담아내 가치 있게<br>표현하는 지속가능한 라이프스타일을 지향합니다.<br>본질에 충실한 캐시미어 전문 브래드 입니다.<br>실용적이면서 합리적인 가치 소비를 추구하며<br>the cashmere 브랜드 아이덴티티의 연장선으로 Kichen, Home Furnishing, <br>Bath, Fragrance 등 다양한 카테고리를 제안합니다.<br>집이라는 공간과 제품, 그리고 자신의 삶을 자연스럽게 하나의 완성된 스토리로 만들어<br>삶의 가치를 더욱 높여줍니다.');
 --rollback;
+set define on;
 commit;
+
+select * from brand order by 1;
