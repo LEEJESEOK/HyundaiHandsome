@@ -1,0 +1,128 @@
+
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-Thin.otf) format('otf'),
+    url(../font/NotoSansCJKkr-Thin.woff) format('woff'),
+    url(../font/NotoSansCJKkr-Thin.ttf) format('ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-Light.otf) format('otf'),
+    url(../font/NotoSansCJKkr-Light.woff) format('woff'),
+    url(../font/NotoSansCJKkr-Light.ttf) format('ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-Regular.otf) format('otf'),
+    url(../font/NotoSansCJKkr-Regular.woff) format('woff'),
+    url(../font/NotoSansCJKkr-Regular.ttf) format('ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-DemiLight.otf) format('otf'),
+    url(../font/NotoSansCJKkr-DemiLight.woff) format('woff'),
+    url(../font/NotoSansCJKkr-DemiLight.ttf) format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-Medium.otf) format('otf'),
+    url(../font/NotoSansCJKkr-Medium.woff) format('woff'),
+    url(../font/NotoSansCJKkr-Medium.ttf) format('ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-Black.otf) format('otf'),
+    url(../font/NotoSansCJKkr-Black.woff) format('woff'),
+    url(../font/NotoSansCJKkr-Black.ttf) format('ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans CJK kr';
+    src: 
+    url(../font/NotoSansCJKkr-Bold.otf) format('otf'),
+    url(../font/NotoSansCJKkr-Bold.woff) format('woff'),
+    url(../font/NotoSansCJKkr-Bold.ttf) format('ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 100;
+    src: url(../font/NotoSansKR-Thin.otf) format('opentype');
+  }
+  @font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url(../font/NotoSansKR-Light.otf) format('opentype');
+  }
+  @font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 400;
+     src: url(../font/NotoSansKR-Regular.otf) format('opentype');
+   }
+  @font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 500;
+     src: url(../font/NotoSansKR-Medium.otf) format('opentype');
+   }
+  @font-face {
+     font-family: 'Noto Sans KR';
+     font-style: normal;
+     font-weight: 700;
+     src:  url(../font/NotoSansKR-Bold.otf) format('opentype');
+   }
+  @font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 900;
+    src: url(../font/NotoSansKR-Black.otf) format('opentype');
+  } 
+ @font-face {
+     font-family: 'Jost';
+     src: 
+     url(../font/Jost400Book.otf) format('otf'),
+     url(../font/Jost-Book.woff) format('woff'),
+     url(../font/Jost-Book.ttf) format('ttf');
+     font-weight: normal;
+     font-style: normal;
+ }
+ @font-face {
+     font-family: 'Jost';
+     src: 
+     url(../font/Jost300Light.otf) format('otf'),
+     url(../font/Jost-Light.woff) format('woff'),
+     url(../font/Jost-Light.ttf) format('ttf');
+     font-weight: 300;
+     font-style: normal;
+ }
+ @font-face {
+     font-family: 'Jost';
+     src: 
+     url(../font/Jost700Bold.otf) format('otf'),
+     url(../font/Jost-Bold.woff) format('woff'),
+     url(../font/Jost-Bold.ttf) format('ttf');
+     font-weight: 700;
+     font-style: normal;
+ }
+ 
