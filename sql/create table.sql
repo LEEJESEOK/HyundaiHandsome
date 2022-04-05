@@ -53,10 +53,10 @@ CREATE SEQUENCE MEMBER_SEQ
 
 DROP TABLE MEMBER CASCADE CONSTRAINTS;
 CREATE TABLE MEMBER(
-    ID VARCHAR2(50)   PRIMARY KEY, -- ¸â¹ö¾ÆÀÌµð
-    NAME VARCHAR2(50) NOT NULL,    -- ¸â¹ö ÀÌ¸§
-    TEL VARCHAR2(50)  NOT NULL,    -- ¸â¹ö ÀüÈ­¹øÈ£
-    PWD VARCHAR2(400) NOT NULL     -- ¸â¹ö ºñ¹Ð¹øÈ£ 
+    ID VARCHAR2(50)   PRIMARY KEY, -- ë©¤ë²„ì•„ì´ë””
+    NAME VARCHAR2(50) NOT NULL,    -- ë©¤ë²„ ì´ë¦„
+    TEL VARCHAR2(50)  NOT NULL,    -- ë©¤ë²„ ì „í™”ë²ˆí˜¸
+    PWD VARCHAR2(400) NOT NULL     -- ë©¤ë²„ ë¹„ë°€ë²ˆí˜¸ 
 );
 
 DROP SEQUENCE BOARD_SEQ;
@@ -66,12 +66,12 @@ CREATE SEQUENCE BOARD_SEQ
 
 DROP TABLE BOARD CASCADE CONSTRAINTS;
 CREATE TABLE BOARD(
-    NO          NUMBER(10) PRIMARY KEY,  -- ±Û ¹øÈ£(PK)
-    TITLE       VARCHAR2(500) NOT NULL,  -- ±Û Á¦¸ñ
-    CONTENT     VARCHAR2(5000) NOT NULL, -- ±Û ³»¿ë
-    REGDATE     DATE,                    -- ±Û ÀÛ¼ºÀÏ
-    VIEWCNT     NUMBER(10) DEFAULT 0,    -- ±Û Á¶È¸¼ö
-    MEMBER_ID   VARCHAR2(50)             -- ±Û ÀÛ¼ºÀÚ(FK)
+    NO          NUMBER(10) PRIMARY KEY,  -- ê¸€ ë²ˆí˜¸(PK)
+    TITLE       VARCHAR2(500) NOT NULL,  -- ê¸€ ì œëª©
+    CONTENT     VARCHAR2(5000) NOT NULL, -- ê¸€ ë‚´ìš©
+    REGDATE     DATE,                    -- ê¸€ ìž‘ì„±ì¼
+    VIEWCNT     NUMBER(10) DEFAULT 0,    -- ê¸€ ì¡°íšŒìˆ˜
+    MEMBER_ID   VARCHAR2(50)             -- ê¸€ ìž‘ì„±ìž(FK)
 );
 
 ALTER TABLE BOARD ADD CONSTRAINT FK_MNO FOREIGN KEY(MEMBER_ID) REFERENCES MEMBER(ID);
@@ -98,8 +98,8 @@ CREATE SEQUENCE brand_seq
        START WITH 1;
 
 DROP TABLE brand_type CASCADE CONSTRAINTS;
--- ºê·£µå ºÐ·ù id
--- ºÐ·ù, ÀÌ¸§
+-- ë¸Œëžœë“œ ë¶„ë¥˜ id
+-- ë¶„ë¥˜, ì´ë¦„
 CREATE TABLE brand_type(
     ID   NUMBER(4) 
          CONSTRAINT brand_type_id_pk PRIMARY KEY,
@@ -109,8 +109,8 @@ CREATE TABLE brand_type(
 );
 
 DROP TABLE brand CASCADE CONSTRAINTS;
--- ºê·£µå Á¤º¸
--- id, ºÐ·ù, ÀÌ¸§, Å°¿öµå, ¼³¸í
+-- ë¸Œëžœë“œ ì •ë³´
+-- id, ë¶„ë¥˜, ì´ë¦„, í‚¤ì›Œë“œ, ì„¤ëª…
 CREATE TABLE brand(
     ID          NUMBER(4) 
                 CONSTRAINT brand_id_pk PRIMARY KEY,
@@ -125,8 +125,8 @@ CREATE TABLE brand(
 );
 
 DROP TABLE brand_img CASCADE CONSTRAINTS;
--- ºê·£µå ÀÌ¹ÌÁö Á¤º¸
--- ºê·£µå id, ÆÄÀÏ ÀÌ¸§
+-- ë¸Œëžœë“œ ì´ë¯¸ì§€ ì •ë³´
+-- ë¸Œëžœë“œ id, íŒŒì¼ ì´ë¦„
 CREATE TABLE brand_img(
     ID          NUMBER(6) 
                 CONSTRAINT brand_img_id_pk PRIMARY KEY,
