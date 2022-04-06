@@ -1,11 +1,15 @@
 package brand;
 
 public class BrandVO {
-	int id;
-	int type;
-	String name;
-	String ss;
-	String desc;
+	private int id;
+	private int type;
+	private String name;
+	private String ss;
+	private String desc;
+
+	public BrandVO() {
+		super();
+	}
 
 	public BrandVO(int id, int type, String name, String ss, String desc) {
 		super();
@@ -40,11 +44,11 @@ public class BrandVO {
 		this.name = name;
 	}
 
-	public String getSS() {
+	public String getSs() {
 		return ss;
 	}
 
-	public void setSS(String ss) {
+	public void setSs(String ss) {
 		this.ss = ss;
 	}
 
@@ -55,5 +59,4 @@ public class BrandVO {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-
 }

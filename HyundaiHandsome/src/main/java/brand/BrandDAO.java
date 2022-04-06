@@ -1,55 +1,45 @@
 package brand;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import java.sql.*;
 import java.util.*;
 
-import com.handsome.util.DBManager;
+import util.DBManager;
 
 public class BrandDAO {
-	static BrandDAO instance;
-
-	BrandDAO() {
-	}
+	static BrandDAO instance = new BrandDAO();
 
 	public static BrandDAO getInstance() {
-		if (instance == null)
-			instance = new BrandDAO();
-
 		return instance;
 	}
 
-	Connection conn = null;
-	PreparedStatement pstmt;
-	CallableStatement cstmt;
+	public ArrayList<BrandVO> selectBrands() {
+		ArrayList<BrandVO> list = new ArrayList<>();
 
-	public ArrayList<BrandVO> selectBrands(String brandType) {
-		ArrayList<BrandVO> brandList = new ArrayList<BrandVO>();
-
+		String sql = "SELECT * FROM BRAND ORDER BY ID";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
-			String query = "SELECT * FROM BRAND WHERE TYPE=(SELECT DISTINCT ID FROM BRAND_TYPE WHERE NAME='" + brandType
-					+ "') ORDER BY ID";
 			conn = DBManager.getConnection();
-			pstmt = conn.prepareStatement(query);
-			ResultSet rs = pstmt.executeQuery();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
 			while (rs.next()) {
-				int _id = rs.getInt("ID");
-				int _type = rs.getInt("TYPE");
-				String _name = rs.getString("NAME");
-				String _ss = rs.getString("BRAND_SS");
-				String _desc = rs.getString("BRAND_DESC");
-
-				BrandVO vo = new BrandVO(_id, _type, _name, _ss, _desc);
-				brandList.add(vo);
+				BrandVO BrandVO = new BrandVO();
+				BrandVO.setId(rs.getInt("ID"));
+				BrandVO.setType(rs.getInt("TYPE"));
+				BrandVO.setName(rs.getString("NAME"));
+				BrandVO.setSs(rs.getString("BRAND_SS"));
+				BrandVO.setDesc(rs.getString("BRAND_DESC"));
+				list.add(BrandVO);
 			}
-
-			DBManager.close(conn, pstmt, rs);
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
 		}
 
-		return brandList;
+		return list;
 	}
 
 }
