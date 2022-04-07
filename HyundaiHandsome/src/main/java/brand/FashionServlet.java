@@ -54,7 +54,7 @@ public class FashionServlet extends HttpServlet {
 		ArrayList<BrandVO> brands = BrandDAO.getInstance().selectBrands("fashion");
 
 		request.setAttribute("brands", brands);
-		request.getRequestDispatcher("/brand/fashion.jsp").forward(request, response);
+		request.getRequestDispatcher("/brand/test.jsp").forward(request, response);
 	}
 
 }
