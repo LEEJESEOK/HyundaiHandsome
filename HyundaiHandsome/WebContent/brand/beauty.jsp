@@ -338,7 +338,7 @@
 
 			<h3 class="hs-row tit_page tit-bg-none tit_bar">
 				아름다움을 찾아가는 끊임없는 여정을 통해<br> <em>이상적인 피부 균형점을 찾고 일상에 새로운 변화와
-					영감을 이끌어냅니다.</em>
+						영감을 이끌어냅니다.</em>
 			</h3>
 			<div class="section box">
 				<div class="hs-row clear beauty mt30">
@@ -347,13 +347,13 @@
 						<p class="display-s">THE JOURNEY TO ETERNAL BEAUTY</p>
 						<p>
 							오에라는 스위스의 정교한 기술력을 바탕으로 탄생한 스킨케어 브랜드로,<br> 새로운 관점에서 미적 기준을
-							제시하는 럭셔리 리추얼 스킨케어를 추구합니다.
+								제시하는 럭셔리 리추얼 스킨케어를 추구합니다. 
 						</p>
 						<p class="mb10">
 							오에라의 핵심 원동력은 다양한 연구 결과를 적용한 독자 성분 크로노 엘릭서™와<br> 흐트러진 피부 리듬을
-							케어해 피부 본연의 리듬을 바로 잡는 캘리브레이팅™ 시스템입니다.<br> 이는 피부가 균형점,
-							Zero-Balance Point에 도달할 수 있도록 이끌어주며<br> 외부 자극에도 쉽게 흔들리지 않는
-							진정한 아름다움을 선사합니다.
+								케어해 피부 본연의 리듬을 바로 잡는 캘리브레이팅™ 시스템입니다.<br> 이는 피부가 균형점,
+									Zero-Balance Point에 도달할 수 있도록 이끌어주며<br> 외부 자극에도 쉽게 흔들리지 않는
+										진정한 아름다움을 선사합니다. 
 						</p>
 						<div>
 							<button class="btn btn-block btnPop"
@@ -612,17 +612,16 @@
 												<table class="table liner-show">
 													<colgroup>
 														<col style="width: 10%">
-														<col style="width: 7%">
-														<col style="width: 7%">
-														<col style="width: 7%">
-														<col style="width: 7%">
-														<col style="width: 31%">
-														<col style="width: 31%">
+															<col style="width: 7%">
+																<col style="width: 7%">
+																	<col style="width: 7%">
+																		<col style="width: 7%">
+																			<col style="width: 31%">
+																				<col style="width: 31%">
 													</colgroup>
 													<thead>
 														<tr>
-															<th rowspan="2">고객의 소리<br>접수현황
-															</th>
+															<th rowspan="2">고객의 소리<br>접수현황 </th>
 															<th colspan="4">처리건수</th>
 															<th rowspan="2">미처리 건수</th>
 															<th rowspan="2" style="border-right: none">주요개선사항</th>
@@ -642,12 +641,10 @@
 															<td>441</td>
 															<td>541</td>
 															<td rowspan="4" style="text-align: left;">미처리 無<br>(평균
-																처리 기간접수 후 2일내 처리 완료)
-															</td>
+																	처리 기간접수 후 2일내 처리 완료) </td>
 															<td rowspan="4" style="text-align: left;">
 																<ul>
-																	<li>심의 프로세스 개선<br> (내부 심의 위원 구성하여 기간 단축)
-																	</li>
+																	<li>심의 프로세스 개선<br> (내부 심의 위원 구성하여 기간 단축) </li>
 																</ul>
 															</td>
 														</tr>
@@ -677,7 +674,7 @@
 												<p class="lf_exp">*동일 건에 대한 중복 접수 포함</p>
 												<div class="desc_wrap">
 													<span>고객님의 편리한 쇼핑 및 보다 나은 서비스 제공을 위하여</span><br> <b>고객의
-														의견을 경청하고 발전해 나아가는 기업이 되겠습니다. 감사합니다.</b>
+															의견을 경청하고 발전해 나아가는 기업이 되겠습니다. 감사합니다.</b>
 												</div>
 
 											</div>

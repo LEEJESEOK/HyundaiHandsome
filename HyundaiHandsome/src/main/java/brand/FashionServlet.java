@@ -1,8 +1,7 @@
 package brand;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,12 +47,11 @@ public class FashionServlet extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// ÇÑ±ÛÈ­ Ã³¸®
+		// í•œê¸€í™”
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		
-		ArrayList<BrandVO> brands = BrandDAO.getInstance().selectBrands();
+		ArrayList<BrandVO> brands = BrandDAO.getInstance().selectBrands("fashion");
 
 		request.setAttribute("brands", brands);
 		request.getRequestDispatcher("/brand/fashion.jsp").forward(request, response);

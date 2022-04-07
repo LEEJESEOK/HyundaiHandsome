@@ -323,8 +323,8 @@
 				<!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 				<div>
 					<h2 class="hs-row tit_page tit_brand">
-						<img src="/ko/images/thumbs/lifestyle-big-1.jpg"
-							class="tit--img" alt="브랜드 이미지">
+						<img src="/ko/images/thumbs/lifestyle-big-1.jpg" class="tit--img"
+							alt="브랜드 이미지">
 					</h2>
 				</div>
 				<div class="hs-row box">
@@ -336,8 +336,7 @@
 				</div>
 
 				<h3 class="hs-row tit_page tit-bg-none tit_bar">
-					가치 있는 삶을 위해 본질에 집중하고<br>
-					<em>지속가능한 라이프스타일을 만들어 갑니다.</em>
+					가치 있는 삶을 위해 본질에 집중하고<br> <em>지속가능한 라이프스타일을 만들어 갑니다.</em>
 				</h3>
 				<div class="section box">
 					<div class="hs-row clear beauty mt30">
@@ -346,13 +345,13 @@
 							<h4>the CASHMERE THINGS</h4>
 							<p>
 								the CASHMERE THINGS는 삶의 진정한 의미를 심플하고 간결하게 담아내 가치 있게<br>
-								표현하는 지속가능한 라이프스타일을 지향합니다.<br> 본질에 충실한 캐시미어 전문 브래드 입니다.
+									표현하는 지속가능한 라이프스타일을 지향합니다.<br> 본질에 충실한 캐시미어 전문 브래드 입니다. 
 							</p>
 							<p class="mb10">
 								실용적이면서 합리적인 가치 소비를 추구하며<br> the cashmere 브랜드 아이덴티티의 연장선으로
-								Kichen, Home Furnishing, <br> Bath, Fragrance 등 다양한 카테고리를
-								제안합니다.<br> 집이라는 공간과 제품, 그리고 자신의 삶을 자연스럽게 하나의 완성된 스토리로 만들어<br>
-								삶의 가치를 더욱 높여줍니다.
+									Kichen, Home Furnishing, <br> Bath, Fragrance 등 다양한 카테고리를
+										제안합니다.<br> 집이라는 공간과 제품, 그리고 자신의 삶을 자연스럽게 하나의 완성된 스토리로 만들어<br>
+												삶의 가치를 더욱 높여줍니다. 
 							</p>
 							<div class="">
 								<button class="btn btn-block btnPop"
@@ -360,8 +359,7 @@
 									바로가기</button>
 							</div>
 							<div class="col-r col-md-6">
-								<img
-									src="/ko/images/thumbs/lifestyle-view-1_2.jpg"
+								<img src="/ko/images/thumbs/lifestyle-view-1_2.jpg"
 									alt="라이프스타일의 브랜드관 제품에 대한 작은 이미지">
 							</div>
 						</div>
@@ -560,17 +558,16 @@
 													<table class="table liner-show">
 														<colgroup>
 															<col style="width: 10%">
-															<col style="width: 7%">
-															<col style="width: 7%">
-															<col style="width: 7%">
-															<col style="width: 7%">
-															<col style="width: 31%">
-															<col style="width: 31%">
+																<col style="width: 7%">
+																	<col style="width: 7%">
+																		<col style="width: 7%">
+																			<col style="width: 7%">
+																				<col style="width: 31%">
+																					<col style="width: 31%">
 														</colgroup>
 														<thead>
 															<tr>
-																<th rowspan="2">고객의 소리<br>접수현황
-																</th>
+																<th rowspan="2">고객의 소리<br>접수현황 </th>
 																<th colspan="4">처리건수</th>
 																<th rowspan="2">미처리 건수</th>
 																<th rowspan="2" style="border-right: none">주요개선사항</th>
@@ -590,12 +587,10 @@
 																<td>441</td>
 																<td>541</td>
 																<td rowspan="4" style="text-align: left;">미처리 無<br>(평균
-																	처리 기간접수 후 2일내 처리 완료)
-																</td>
+																		처리 기간접수 후 2일내 처리 완료) </td>
 																<td rowspan="4" style="text-align: left;">
 																	<ul>
-																		<li>심의 프로세스 개선<br> (내부 심의 위원 구성하여 기간 단축)
-																		</li>
+																		<li>심의 프로세스 개선<br> (내부 심의 위원 구성하여 기간 단축) </li>
 																	</ul>
 																</td>
 															</tr>
@@ -625,7 +620,7 @@
 													<p class="lf_exp">*동일 건에 대한 중복 접수 포함</p>
 													<div class="desc_wrap">
 														<span>고객님의 편리한 쇼핑 및 보다 나은 서비스 제공을 위하여</span><br> <b>고객의
-															의견을 경청하고 발전해 나아가는 기업이 되겠습니다. 감사합니다.</b>
+																의견을 경청하고 발전해 나아가는 기업이 되겠습니다. 감사합니다.</b>
 													</div>
 
 												</div>

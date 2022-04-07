@@ -1,7 +1,10 @@
 package brand;
 
 public class BrandService {
-	private BrandDAO brandDAO = BrandDAO.getInstance();
-	
-	
+	private static BrandService instance;
+
+	public static BrandService getInstance() {
+		return instance;
+	}
+
 }

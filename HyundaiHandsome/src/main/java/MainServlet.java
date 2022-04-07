@@ -1,4 +1,3 @@
-package brand;
 
 import java.io.IOException;
 
@@ -9,17 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BeautyServlet
+ * Servlet implementation class MainServlet
  */
-@WebServlet("/brand/beauty.do")
-public class BeautyServlet extends HttpServlet {
+@WebServlet("/main.do")
+public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BeautyServlet() {
+	public MainServlet() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -42,14 +42,13 @@ public class BeautyServlet extends HttpServlet {
 		doHandle(request, response);
 	}
 
-	private void doHandle(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 한글 인코딩
+		// �ѱ�ȭ
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-
-		request.getRequestDispatcher("/brand/beauty.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("/main.jsp").forward(request, response);
 	}
 
 }
