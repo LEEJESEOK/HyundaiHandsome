@@ -45,10 +45,6 @@ public class BeautyServlet extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 한글 인코딩
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-
 		request.getRequestDispatcher("/brand/beauty.jsp").forward(request, response);
 	}
 

@@ -21,7 +21,6 @@ public class FashionServlet extends HttpServlet {
 	 */
 	public FashionServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -47,14 +46,10 @@ public class FashionServlet extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 한글화
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-
 		ArrayList<BrandVO> brands = BrandDAO.getInstance().selectBrands("fashion");
 
 		request.setAttribute("brands", brands);
-		request.getRequestDispatcher("/brand/test.jsp").forward(request, response);
+		request.getRequestDispatcher("/brand/fashion.jsp").forward(request, response);
 	}
 
 }

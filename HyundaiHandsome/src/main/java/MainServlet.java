@@ -19,7 +19,6 @@ public class MainServlet extends HttpServlet {
 	 */
 	public MainServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -44,10 +43,6 @@ public class MainServlet extends HttpServlet {
 
 	void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// «—±€»≠
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-		
 		request.getRequestDispatcher("/main.jsp").forward(request, response);
 	}
 

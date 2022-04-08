@@ -20,7 +20,6 @@ public class LifeStyleServlet extends HttpServlet {
 	 */
 	public LifeStyleServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -45,10 +44,6 @@ public class LifeStyleServlet extends HttpServlet {
 
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// «—±€»≠
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
 
 		request.getRequestDispatcher("/brand/lifeStyle.jsp").forward(request, response);
 	}
