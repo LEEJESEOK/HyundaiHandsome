@@ -1,6 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
+
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=G-52LSKCSTND">
+	
+</script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+	gtag('config', 'G-52LSKCSTND');
+</script>
+<title>한섬 ｜ HANDSOME Corp.</title>
+<meta name="description"
+	content="삶의 모든 영역에서 아름다운 경험을 제공하는 스타일 크리에이터, 한섬" />
+<meta name="google-site-verification"
+	content="QtTwloyz4KGmLhU4TqXI8B8alxsywZwO5-JgZisza5k" />
+<meta name="naver-site-verification"
+	content="4027c0c0f6f3cecc2c3c4f38c6b50faf599d29e3" />
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<link rel="icon" href="/ko/images/common/favicon.ico"
+	type="image/x-icon" />
+<link rel="shortcut icon" href="/ko/images/common/favicon.ico"
+	type="image/x-icon" />
+<link rel="apple-touch-icon"
+	href="/ko/images/common/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" href="/ko/images/common/favicon-32x32.png"
+	sizes="32x32" type="image/png" />
+<link rel="icon" href="/ko/images/common/favicon-16x16.png"
+	sizes="16x16" type="image/png" />
+<link rel="stylesheet" href="/ko/css/font.css" />
+<link rel="stylesheet" href="/ko/css/swiper.min.css" />
+<link rel="stylesheet" href="/ko/css/ko_common.css" />
+<link rel="stylesheet" href="/ko/css/ko_style.css" />
+<script src="/ko/js/jquery-3.5.1.min.js"></script>
+<script src="/ko/js/swiper.min.js"></script>
+<script src="/ko/js/bootstrap.js"></script>
+<script src="/ko/js/cmmn.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<%@ include file="header.jsp"%>
 
 		<!--  container -->
 		<div id="contents" class="container">
@@ -314,4 +366,8 @@
 			});
 		</script>
 
-		<%@ include file="footer.jsp" %>
+		<%@ include file="footer.jsp"%>
+
+	</div>
+</body>
+</html>

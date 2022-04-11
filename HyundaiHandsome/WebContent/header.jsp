@@ -198,3 +198,66 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		setLangHref();
+		setHtop();
+	});
+
+	function setLangHref() {
+		/* var href = window.location.href;
+		href = href.replace(/(\/ko\/|\/en\/|\/zh\/)/g, '/lang/');
+		var hrefKo = href.replace('/lang/', '/ko/');
+		var hrefEn = href.replace('/lang/', '/en/');
+		var hrefZh = href.replace('/lang/', '/zh/');
+		$('#langKo').attr('href', hrefKo);
+		$('#langEn').attr('href', hrefEn);
+		$('#langZh').attr('href', hrefZh); */
+		$('#langKo').attr('href', '/ko/main.do');
+		$('#langEn').attr('href', '/en/main.do');
+		$('#langZh').attr('href', '/zh/main.do');
+	}
+
+	function setHtop() {
+		var pathname = window.location.pathname;
+		var menuHref = pathname.replace(/(02.do|03.do|04.do|05.do|06.do)/g,
+				'01.do');
+		menuHref = menuHref.replace(/(Det.do)/g, '.do');
+		if ('/ko/main.do' == menuHref || '/' == menuHref || '' == menuHref) {
+			$('#header').removeClass('sub');
+		} else {
+			$('#header').addClass('sub');
+			$('.container').css('padding-top', '87px');
+		}
+	}
+
+	// header scroll
+	$(function() {
+		$(window).scroll(function() {
+			var scroll = $(this).scrollTop();
+			var headerH = $(".header").height();
+			if ($(window).scrollTop() > headerH) {
+				$(".header").addClass("minify");
+				return false;
+			} else {
+				$(".header").removeClass("minify");
+				return false;
+			}
+		});
+	});
+
+	//Toggle : top-utill-area
+	$(".utill-lang").click(function() {
+		$(".selectList").slideToggle(340, function() {
+		});
+		$(this).toggleClass('on');
+	});
+
+	//Tab : click on-off
+	$(function() {
+		$('.tabs li').click(function() {
+			$('.tabs li.on').removeClass('on');
+			$(this).addClass('on');
+		});
+	});
+</script>

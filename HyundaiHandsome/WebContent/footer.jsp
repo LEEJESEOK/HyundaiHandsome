@@ -356,3 +356,42 @@
 		<span>본문 맨 위로 가기</span>
 	</button>
 </div>
+<script>
+	// modal in swiper
+	$(document).ready(function() {
+
+		$(".modal").on('show.bs.modal', function() {
+			setTimeout(function() {
+				var swiperPop = new Swiper('.swipPop', {
+				// pagination: '.swiper-pagination',
+				// nextButton: '.swiper-button-next',
+				// prevButton: '.swiper-button-prev',
+				});
+			}, 500);
+		});
+	});
+
+	$(function() {
+		var $w = $(window), fH = $('.footer').outerHeight(), $toolTop = $('#toolTop');
+		$w.on('scroll', function() {
+			var sT = $w.scrollTop();
+			var hH = $(document).height() - $w.height() - fH;
+			if (sT >= hH)
+				$toolTop.addClass('on')
+			else
+				$toolTop.removeClass('on')
+		});
+		$toolTop.click(function() {
+			var pagetop = $('html').offset();
+			$('html, body').animate({
+				scrollTop : pagetop.top
+			}, 400);
+		});
+	});
+
+	$('.site_tgl').click(function() {
+		event.stopPropagation();
+		$(".site_list").slideToggle(670, function() {
+		});
+	});
+</script>
