@@ -18,8 +18,8 @@ import member.*;
  *  
  *  1. 클라이언트의 요청을 FrontController에서 한 번에 처리
  *  2. Command 패턴을 함께 사용해, 각 요청의 직접적인 처리는 분리
- */
 //@WebServlet("*.do")
+ */
 //@WebServlet(urlPatterns = {"/company/*", "/member/*"})
 public class FrontController extends HttpServlet{
 
