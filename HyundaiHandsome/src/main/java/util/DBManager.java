@@ -1,13 +1,12 @@
 package util;
+import java.sql.*;
+import javax.naming.*;
+import javax.sql.*;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
+/*
+작성자  : 
+클래스 설명 : DBCP와 관련된 커넥션을 담당하는 클래스.
+*/
 public class DBManager {
 	public static Connection getConnection() {
 		
@@ -41,4 +40,4 @@ public class DBManager {
 			e.printStackTrace();
 		}
 	}
-} //end class
+}

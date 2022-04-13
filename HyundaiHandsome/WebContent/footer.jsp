@@ -6,7 +6,7 @@
 		<div class="col-md logo">
 			<!-- 로고 -->
 			<h1 class="hs-top-logo bk">
-				<a href="/ko/main.do" class="moveProductListButton "
+				<a href="${contextPath}/main.do" class="moveProductListButton "
 					title="HYUNDAI HANDSOME 바로가기" tabindex="1" data-url=""> <span
 					class="blind">HYUNDAI HANDSOME 바로가기</span>
 				</a>
@@ -32,104 +32,104 @@
 												<div class="mapCategory">
 													<h3>COMPANY</h3>
 													<ul class="map_1depth">
-														<li><a href="/ko/company/aboutHandsome.do">ABOUT
+														<li><a href="${contextPath}/company/aboutHandsome.do">ABOUT
 																한섬</a></li>
-														<li><a href="/ko/company/ceoMessage.do">CEO 메시지</a></li>
-														<li><a href="/ko/company/history01.do">연혁</a>
+														<li><a href="${contextPath}/company/ceoMessage.do">CEO 메시지</a></li>
+														<li><a href="${contextPath}/company/history01.do">연혁</a>
 															<ul class="map_2depth">
-																<li><a href="/ko/company/history01.do">2012 ~
+																<li><a href="${contextPath}/company/history01.do">2012 ~
 																		현재</a></li>
-																<li><a href="/ko/company/history02.do">1987 ~
+																<li><a href="${contextPath}/company/history02.do">1987 ~
 																		2011</a></li>
 															</ul></li>
 
-														<li><a href="/ko/company/ethicalMgmt01.do">윤리경영</a>
+														<li><a href="${contextPath}/company/ethicalMgmt01.do">윤리경영</a>
 
 															<ul class="map_2depth">
-																<li><a href="/ko/company/ethicalMgmt01.do">그룹윤리경영</a></li>
-																<li><a href="/ko/company/ethicalMgmt02.do">그룹윤리강령</a></li>
-																<li><a href="/ko/company/ethicalMgmt03.do">임직원
+																<li><a href="${contextPath}/company/ethicalMgmt01.do">그룹윤리경영</a></li>
+																<li><a href="${contextPath}/company/ethicalMgmt02.do">그룹윤리강령</a></li>
+																<li><a href="${contextPath}/company/ethicalMgmt03.do">임직원
 																		윤리실천경영</a></li>
 															</ul></li>
 
-														<li><a href="/ko/company/wayToCome.do">오시는 길</a></li>
+														<li><a href="${contextPath}/company/wayToCome.do">오시는 길</a></li>
 													</ul>
 												</div>
 												<div class="mapCategory">
 													<h3>BRAND</h3>
 													<ul class="map_1depth">
-														<li><a href="/ko/brand/fashion.do">패션</a></li>
+														<li><a href="${contextPath}/brand/fashion.do">패션</a></li>
 
-														<li><a href="/ko/brand/beauty.do">뷰티</a></li>
+														<li><a href="${contextPath}/brand/beauty.do">뷰티</a></li>
 
-														<li><a href="/ko/brand/lifeStyle.do">라이프스타일</a></li>
+														<li><a href="${contextPath}/brand/lifeStyle.do">라이프스타일</a></li>
 													</ul>
 												</div>
 												<div class="mapCategory">
 													<h3>MEDIA</h3>
 													<ul class="map_1depth">
-														<li><a href="/ko/media/collectionList.do">Collection</a></li>
+														<li><a href="${contextPath}/media/collectionList.do">Collection</a></li>
 
-														<li><a href="/ko/media/newsList.do">News</a></li>
+														<li><a href="${contextPath}/media/newsList.do">News</a></li>
 
 													</ul>
 												</div>
 												<div class="mapCategory">
 													<h3>IR</h3>
 													<ul class="map_1depth">
-														<li id="liIr01"><a href="/ko/ir/governance01.do">기업지배구조</a>
+														<li id="liIr01"><a href="${contextPath}/ir/governance01.do">기업지배구조</a>
 															<ul class="map_2depth">
-																<li><a href="/ko/ir/governance01.do">회사개요</a></li>
-																<li><a href="/ko/ir/governance03.do">주식 및 주주정보</a></li>
-																<li><a href="/ko/ir/governance03.do">주주총회</a></li>
-																<li><a href="/ko/ir/governance04.do">이사회 및 위원회</a></li>
-																<li><a href="/ko/ir/governance05.do">감사기구</a></li>
-																<li><a href="/ko/ir/governance06.do">평가정보</a></li>
+																<li><a href="${contextPath}/ir/governance01.do">회사개요</a></li>
+																<li><a href="${contextPath}/ir/governance03.do">주식 및 주주정보</a></li>
+																<li><a href="${contextPath}/ir/governance03.do">주주총회</a></li>
+																<li><a href="${contextPath}/ir/governance04.do">이사회 및 위원회</a></li>
+																<li><a href="${contextPath}/ir/governance05.do">감사기구</a></li>
+																<li><a href="${contextPath}/ir/governance06.do">평가정보</a></li>
 															</ul></li>
-														<li><a href="/ko/ir/financialInfo01.do">재무정보</a>
+														<li><a href="${contextPath}/ir/financialInfo01.do">재무정보</a>
 															<ul class="map_2depth">
-																<li><a href="/ko/ir/financialInfo01.do">요약재무제표</a></li>
-																<li><a href="/ko/ir/financialInfo02.do">재무상태표</a></li>
-																<li><a href="/ko/ir/financialInfo03.do">손익계산서</a></li>
+																<li><a href="${contextPath}/ir/financialInfo01.do">요약재무제표</a></li>
+																<li><a href="${contextPath}/ir/financialInfo02.do">재무상태표</a></li>
+																<li><a href="${contextPath}/ir/financialInfo03.do">손익계산서</a></li>
 															</ul></li>
-														<li><a href="/ko/ir/stockInfo.do">주가정보</a></li>
+														<li><a href="${contextPath}/ir/stockInfo.do">주가정보</a></li>
 
-														<li><a href="/ko/ir/disclosureInfoList.do">공시정보</a></li>
+														<li><a href="${contextPath}/ir/disclosureInfoList.do">공시정보</a></li>
 
-														<li><a href="/ko/ir/irArchiveList.do">IR 자료실</a></li>
+														<li><a href="${contextPath}/ir/irArchiveList.do">IR 자료실</a></li>
 													</ul>
 												</div>
 												<div class="mapCategory">
 													<h3>SUSTAINABILITY</h3>
 													<ul class="map_1depth">
 
-														<li><a href="/ko/sustainability/sharedGrowth01.do">동반성장</a>
+														<li><a href="${contextPath}/sustainability/sharedGrowth01.do">동반성장</a>
 
 															<ul class="map_2depth">
-																<li><a href="/ko/sustainability/sharedGrowth01.do">소개</a></li>
-																<li><a href="/ko/sustainability/sharedGrowth02.do">4대
+																<li><a href="${contextPath}/sustainability/sharedGrowth01.do">소개</a></li>
+																<li><a href="${contextPath}/sustainability/sharedGrowth02.do">4대
 																		실천사항</a></li>
-																<li><a href="/ko/sustainability/sharedGrowth03.do">협력업체
+																<li><a href="${contextPath}/sustainability/sharedGrowth03.do">협력업체
 																		선정</a></li>
-																<li><a href="/ko/sustainability/sharedGrowth04.do">지원제도</a></li>
-																<li><a href="/ko/sustainability/sharedGrowth05.do">소통의
+																<li><a href="${contextPath}/sustainability/sharedGrowth04.do">지원제도</a></li>
+																<li><a href="${contextPath}/sustainability/sharedGrowth05.do">소통의
 																		장</a></li>
 															</ul></li>
 
 														<li id="liSt02"><a
-															href="/ko/sustainability/socialContrib.do">사회공헌</a></li>
+															href="${contextPath}/sustainability/socialContrib.do">사회공헌</a></li>
 														<li id="liSt03"><a
-															href="/ko/sustainability/ecoFriendly01.do">친환경</a>
+															href="${contextPath}/sustainability/ecoFriendly01.do">친환경</a>
 															<ul class="map_2depth">
-																<li><a href="/ko/sustainability/ecoFriendly01.do">친환경
+																<li><a href="${contextPath}/sustainability/ecoFriendly01.do">친환경
 																		경영</a></li>
-																<li><a href="/ko/sustainability/ecoFriendly02.do">친환경
+																<li><a href="${contextPath}/sustainability/ecoFriendly02.do">친환경
 																		활동</a></li>
 															</ul></li>
-														<li><a href="/ko/sustainability/safetyHealth01.do">안전&#183;보건</a>
+														<li><a href="${contextPath}/sustainability/safetyHealth01.do">안전&#183;보건</a>
 															<ul class="map_2depth">
-																<li><a href="/ko/sustainability/safetyHealth01.do">안전&#183;보건</a></li>
-																<li><a href="/ko/sustainability/safetyHealth02.do">제품
+																<li><a href="${contextPath}/sustainability/safetyHealth01.do">안전&#183;보건</a></li>
+																<li><a href="${contextPath}/sustainability/safetyHealth02.do">제품
 																		안전성 평가</a></li>
 															</ul></li>
 													</ul>
@@ -144,7 +144,7 @@
 					<li><a
 						href="https://recruit.ehyundai.com/recruit-info/announcement/list.nhd?pageNo=1&hireGb=01&coCd=HDHAN"
 						target="_blank">채용공고</a></li>
-					<li><a href="http://www.thehandsome.com/ko/b/storeInformation"
+					<li><a href="http://www.thehandsome.com${contextPath}/b/storeInformation"
 						target="_blank">매장안내</a></li>
 					<li><a
 						href="https://smrecruit.handsome.co.kr/ssmm/pc/main.htm"
@@ -342,7 +342,7 @@
 					</ul>
 					<ul class="col-md">
 						<li><a
-							href="http://www.hyundailivart.co.kr/ko/intro/index.lvt"
+							href="http://www.hyundailivart.co.kr${contextPath}/intro/index.lvt"
 							target="_blank" title="새창열림" class="li-disc">현대리바트</a></li>
 						<li><a href="http://www.hyundai-ite.com/index.jsp"
 							target="_blank" title="새창열림" class="li-disc">현대IT&amp;E</a></li>

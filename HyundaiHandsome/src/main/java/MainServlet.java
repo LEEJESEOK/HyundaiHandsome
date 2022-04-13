@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,11 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import media.news.NewsDAO;
+import media.news.NewsVO;
+
 /**
  * Servlet implementation class MainServlet
  */
 @WebServlet("/main.do")
 public class MainServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -43,7 +49,16 @@ public class MainServlet extends HttpServlet {
 
 	void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// TODO NewsDAO select
+
+		List<NewsVO> newsList = NewsDAO.getInstance().selectNewsList(1);
+
+		List<NewsVO> news = newsList.subList(0, 3);
+
+		request.setAttribute("news", news);
+
 		request.getRequestDispatcher("/main.jsp").forward(request, response);
+
 	}
 
 }

@@ -31,24 +31,24 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<link rel="icon" href="/ko/images/common/favicon.ico"
+<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon.ico"
 	type="image/x-icon" />
-<link rel="shortcut icon" href="/ko/images/common/favicon.ico"
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/common/favicon.ico"
 	type="image/x-icon" />
 <link rel="apple-touch-icon"
-	href="/ko/images/common/apple-touch-icon.png" sizes="180x180" />
-<link rel="icon" href="/ko/images/common/favicon-32x32.png"
+	href="${pageContext.request.contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon-32x32.png"
 	sizes="32x32" type="image/png" />
-<link rel="icon" href="/ko/images/common/favicon-16x16.png"
+<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon-16x16.png"
 	sizes="16x16" type="image/png" />
-<link rel="stylesheet" href="/ko/css/font.css" />
-<link rel="stylesheet" href="/ko/css/swiper.min.css" />
-<link rel="stylesheet" href="/ko/css/ko_common.css" />
-<link rel="stylesheet" href="/ko/css/ko_style.css" />
-<script src="/ko/js/jquery-3.5.1.min.js"></script>
-<script src="/ko/js/swiper.min.js"></script>
-<script src="/ko/js/bootstrap.js"></script>
-<script src="/ko/js/cmmn.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/ko_common.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/ko_style.css" />
+<script src="${pageContext.request.contextPath}/js/jquery-3.5.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/swiper.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/js/cmmn.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -60,15 +60,15 @@
 				<!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 				<div>
 					<h2 class="hs-row tit_page tit_brand">
-						<img src="/ko/images/thumbs/lifestyle-big-1.jpg" class="tit--img"
+						<img src="${pageContext.request.contextPath}/images/thumbs/lifestyle-big-1.jpg" class="tit--img"
 							alt="브랜드 이미지">
 					</h2>
 				</div>
 				<div class="hs-row box">
 					<ol class="breadcrumb col-r">
-						<li class="breadcrumb-item"><a href="/ko/main.do">HOME</a></li>
-						<li class="breadcrumb-item"><a href="/ko/brand/fashion.do">BRAND</a></li>
-						<li class="breadcrumb-item"><a href="/ko/brand/lifeStyle.do">라이프스타일</a></li>
+						<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/main.do">HOME</a></li>
+						<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/brand/fashion.do">BRAND</a></li>
+						<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/brand/lifeStyle.do">라이프스타일</a></li>
 					</ol>
 				</div>
 
@@ -78,36 +78,44 @@
 				<div class="section box">
 					<div class="hs-row clear beauty mt30">
 						<div class="col-md clear">
-							<p class="display-s">SUSTAINABLE &amp; VALUABLE LIFESTYLE</p>
-							<h4>the CASHMERE THINGS</h4>
-							<p>
-								the CASHMERE THINGS는 삶의 진정한 의미를 심플하고 간결하게 담아내 가치 있게<br>
-									표현하는 지속가능한 라이프스타일을 지향합니다.<br> 본질에 충실한 캐시미어 전문 브래드 입니다. 
-							</p>
-							<p class="mb10">
-								실용적이면서 합리적인 가치 소비를 추구하며<br> the cashmere 브랜드 아이덴티티의 연장선으로
-									Kichen, Home Furnishing, <br> Bath, Fragrance 등 다양한 카테고리를
-										제안합니다.<br> 집이라는 공간과 제품, 그리고 자신의 삶을 자연스럽게 하나의 완성된 스토리로 만들어<br>
-												삶의 가치를 더욱 높여줍니다. 
-							</p>
+							<p class="display-s">${brand.ss }</p>
+							<h4>${brand.name }</h4>
+							${brand.description }
 							<div class="">
 								<button class="btn btn-block btnPop"
-									onclick="window.open('http://www.thehandsome.com/ko/c/br08_ls/br08')">브랜드관
+									onclick="${brand.mallScriptType}('${brand.mallId}');">브랜드관
 									바로가기</button>
 							</div>
 							<div class="col-r col-md-6">
-								<img src="/ko/images/thumbs/lifestyle-view-1_2.jpg"
+								<img src="${pageContext.request.contextPath}/images/thumbs/lifestyle-view-1_2.jpg"
 									alt="라이프스타일의 브랜드관 제품에 대한 작은 이미지">
 							</div>
 						</div>
 						<div class="col-r">
-							<img src="/ko/images/thumbs/lifestyle-view-1_1.jpg"
+							<img src="${pageContext.request.contextPath}/images/thumbs/lifestyle-view-1_1.jpg"
 								alt="라이프스타일의 브랜드관 제품에 대한 이미지">
 						</div>
 					</div>
 				</div>
 
 
+				<script>
+					function goBrandPav01(brNum) {
+						window.open('http://www.thehandsome.com/ko/b/br'
+								+ brNum);
+					}
+
+					function goBrandPav02(brNum) {
+						window.open('http://www.thehandsome.com/ko/c/br'
+								+ brNum + '/br' + brNum);
+					}
+
+					function goBrandPav03(brndCtgryNo) {
+						window
+								.open('https://www.hfashionmall.com/display/brand?brndCtgryNo='
+										+ brndCtgryNo);
+					}
+				</script>
 				<!-- // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 			</div>
 		</div>

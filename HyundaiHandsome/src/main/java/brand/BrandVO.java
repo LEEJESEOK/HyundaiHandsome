@@ -4,11 +4,14 @@ import lombok.Data;
 
 @Data
 public class BrandVO {
-	private int id;
-	private int type;
-	private String name;
-	private String ss;
-	private String description;
-	private String mallType;
-	private String mallId;
+	protected int id;
+	protected int type;
+	protected String name;
+	protected String ss;
+	protected String description;
+	protected String mallScriptType;
+	protected String mallId;
+	
+	protected String popImgUri;
+	protected String popheadImgUri;
 }

@@ -1,6 +1,8 @@
 package brand;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,6 +47,9 @@ public class BeautyServlet extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		BrandVO brand = BrandDAO.getInstance().selectBeautyBrand();
+
+		request.setAttribute("brand", brand);
 		request.getRequestDispatcher("/brand/beauty.jsp").forward(request, response);
 	}
 

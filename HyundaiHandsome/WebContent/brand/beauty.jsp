@@ -31,24 +31,24 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<link rel="icon" href="/ko/images/common/favicon.ico"
+<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon.ico"
 	type="image/x-icon" />
-<link rel="shortcut icon" href="/ko/images/common/favicon.ico"
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/common/favicon.ico"
 	type="image/x-icon" />
 <link rel="apple-touch-icon"
-	href="/ko/images/common/apple-touch-icon.png" sizes="180x180" />
-<link rel="icon" href="/ko/images/common/favicon-32x32.png"
+	href="${pageContext.request.contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon-32x32.png"
 	sizes="32x32" type="image/png" />
-<link rel="icon" href="/ko/images/common/favicon-16x16.png"
+<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon-16x16.png"
 	sizes="16x16" type="image/png" />
-<link rel="stylesheet" href="/ko/css/font.css" />
-<link rel="stylesheet" href="/ko/css/swiper.min.css" />
-<link rel="stylesheet" href="/ko/css/ko_common.css" />
-<link rel="stylesheet" href="/ko/css/ko_style.css" />
-<script src="/ko/js/jquery-3.5.1.min.js"></script>
-<script src="/ko/js/swiper.min.js"></script>
-<script src="/ko/js/bootstrap.js"></script>
-<script src="/ko/js/cmmn.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css${pageContext.request.contextPath}_common.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css${pageContext.request.contextPath}_style.css" />
+<script src="${pageContext.request.contextPath}/js/jquery-3.5.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/swiper.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
+<script src="${pageContext.request.contextPath}/js/cmmn.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -56,20 +56,20 @@
 
 		<!--  container -->
 		<div id="contents" class="container" style="padding-top: 87px;">
-			<div class="page-body-wrapper">
+			<div claXss="page-body-wrapper">
 				<!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 				<div>
 					<h2 class="hs-row tit_page tit_brand">
-						<img src="/ko/images/thumbs/beauty-big-1.png"
-							class="tit--img" alt="브랜드 이미지">
+						<img src="${pageContext.request.contextPath}/images/thumbs/beauty-big-1.png" class="tit--img"
+							alt="브랜드 이미지">
 					</h2>
 				</div>
 			</div>
 			<div class="hs-row box">
 				<ol class="breadcrumb col-r">
-					<li class="breadcrumb-item"><a href="/ko/main.do">HOME</a></li>
-					<li class="breadcrumb-item"><a href="/ko/brand/fashion.do">BRAND</a></li>
-					<li class="breadcrumb-item"><a href="/ko/brand/beauty.do">뷰티</a></li>
+					<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/main.do">HOME</a></li>
+					<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/brand/fashion.do">BRAND</a></li>
+					<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/brand/beauty.do">뷰티</a></li>
 				</ol>
 			</div>
 
@@ -80,40 +80,47 @@
 			<div class="section box">
 				<div class="hs-row clear beauty mt30">
 					<div class="col-r col-md-5" style="right: 10px;">
-						<h4>OERA</h4>
-						<p class="display-s">THE JOURNEY TO ETERNAL BEAUTY</p>
-						<p>
-							오에라는 스위스의 정교한 기술력을 바탕으로 탄생한 스킨케어 브랜드로,<br> 새로운 관점에서 미적 기준을
-								제시하는 럭셔리 리추얼 스킨케어를 추구합니다. 
-						</p>
-						<p class="mb10">
-							오에라의 핵심 원동력은 다양한 연구 결과를 적용한 독자 성분 크로노 엘릭서™와<br> 흐트러진 피부 리듬을
-								케어해 피부 본연의 리듬을 바로 잡는 캘리브레이팅™ 시스템입니다.<br> 이는 피부가 균형점,
-									Zero-Balance Point에 도달할 수 있도록 이끌어주며<br> 외부 자극에도 쉽게 흔들리지 않는
-										진정한 아름다움을 선사합니다. 
-						</p>
+						<h4>${brand.name }</h4>
+						<p class="display-s">${brand.ss }</p>
+						${brand.description }
 						<div>
 							<button class="btn btn-block btnPop"
-								onclick="window.open('http://www.thehandsome.com/ko/b/br61')"
+								onclick="${brand.mallScriptType}('${brand.mallId}');"
 								style="display: inline-block; margin-right: 30px;">
 								브랜드관 바로가기</button>
-							<button class="btn btn-block btnPop"
-								onclick="window.open('https://www.oera.com')"
-								style="display: inline-block">OERA 홈페이지</button>
+							<!-- 							<button class="btn btn-block btnPop" -->
+							<!-- 								onclick="window.open('https://www.oera.com')" -->
+							<!-- 								style="display: inline-block">OERA 홈페이지</button> -->
 						</div>
 						<div class="col-r">
-							<img src="/ko/images/thumbs/brand-view-1_2.jpg"
+							<img src="${pageContext.request.contextPath}/images/thumbs/brand-view-1_2.jpg"
 								alt="브랜드관 제품에 대한 작은 이미지">
 						</div>
 					</div>
 					<div class="col-md">
-						<img src="/ko/images/thumbs/brand-view-1_1.jpg"
+						<img src="${pageContext.request.contextPath}/images/thumbs/brand-view-1_1.jpg"
 							alt="브랜드관 제품에 대한 이미지">
 					</div>
 				</div>
 			</div>
 
 
+			<script>
+				function goBrandPav01(brNum) {
+					window.open('http://www.thehandsome.com${pageContext.request.contextPath}/b/br' + brNum);
+				}
+
+				function goBrandPav02(brNum) {
+					window.open('http://www.thehandsome.com${pageContext.request.contextPath}/c/br' + brNum
+							+ '/br' + brNum);
+				}
+
+				function goBrandPav03(brndCtgryNo) {
+					window
+							.open('https://www.hfashionmall.com/display/brand?brndCtgryNo='
+									+ brndCtgryNo);
+				}
+			</script>
 			<!-- // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 		</div>
 		<!-- // container -->
@@ -155,11 +162,11 @@
 						}
 						$(".swiper-button-next").css(
 								"background-image",
-								"url('/ko/images/thumbs/bdlogo/brandLogo"
+								"url('${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo"
 										+ nextIndex + ".png')");
 						$(".swiper-button-prev").css(
 								"background-image",
-								"url('/ko/images/thumbs/bdlogo/brandLogo"
+								"url('${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo"
 										+ prevIndex + ".png')");
 					}
 				},

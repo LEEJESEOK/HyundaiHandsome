@@ -46,7 +46,7 @@ public class FashionServlet extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ArrayList<BrandVO> brands = BrandDAO.getInstance().selectBrands("fashion");
+		ArrayList<BrandVO> brands = BrandDAO.getInstance().selectFashionBrands();
 
 		request.setAttribute("brands", brands);
 		request.getRequestDispatcher("/brand/fashion.jsp").forward(request, response);

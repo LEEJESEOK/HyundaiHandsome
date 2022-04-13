@@ -1,6 +1,7 @@
 package brand;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,6 +46,9 @@ public class LifeStyleServlet extends HttpServlet {
 	private void doHandle(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		BrandVO brand = BrandDAO.getInstance().selectLifeStyleBrand();
+
+		request.setAttribute("brand", brand);
 		request.getRequestDispatcher("/brand/lifeStyle.jsp").forward(request, response);
 	}
 

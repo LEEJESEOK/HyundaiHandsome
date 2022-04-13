@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="ko">
@@ -52,8 +55,7 @@
 
 <body>
 	<div class="wrap">
-		<%@ include file="header.jsp"%>
-
+		<%@ include file="/header.jsp"%>
 		<!--  container -->
 		<div id="contents" class="container">
 			<div class="page-body-wrapper">
@@ -219,48 +221,22 @@
 							<span class="eng">AT HANDSOME</span>
 						</h2>
 						<div class="hs-row">
-							<div class="col-md">
-								<dl>
-									<a
-										href="/ko/media/newsDet.do?idEnc=a1d0e0950dedc5ef474c94f91b846b40">
-										<dt>
-											<img
-												src="http://img.handsome.co.kr/images/uld/news/da00870e-025c-42e3-b967-f794681bee8d.jpg"
-												alt="440-270.jpg" width="441" height="270">
-										</dt>
-										<dd>더캐시미어, 22SS 캠페인 &#039;Another Earth&#039;공개</dd>
-										<dd>2022.04.05</dd>
-									</a>
-								</dl>
-							</div>
-							<div class="col-md">
-								<dl>
-									<a
-										href="/ko/media/newsDet.do?idEnc=0e8af22a56e456baef9c3401b2e80641">
-										<dt>
-											<img
-												src="http://img.handsome.co.kr/images/uld/news/48f2dfac-5e20-445e-bd1d-996dec475140.png"
-												alt="440-270.png" width="441" height="270">
-										</dt>
-										<dd>한섬, 더한섬하우스 매장서 지비지 작가 전시 연다</dd>
-										<dd>2022.02.22</dd>
-									</a>
-								</dl>
-							</div>
-							<div class="col-md">
-								<dl>
-									<a
-										href="/ko/media/newsDet.do?idEnc=dd046742bddfb5fc7247f57f3d4d5557">
-										<dt>
-											<img
-												src="http://img.handsome.co.kr/images/uld/news/3da30cdb-3f5d-4fb6-b280-974465767933.png"
-												alt="제목을-입력해주세요_-001 (34).png" width="441" height="270">
-										</dt>
-										<dd>이번엔 웹예능...한섬, 영상 콘텐츠 강화 나선다.</dd>
-										<dd>2021.12.13</dd>
-									</a>
-								</dl>
-							</div>
+							<!-- TODO -->
+							<c:set var="colMax" value="${fn:length(news)}" />
+							<c:forEach var="col" items="${news}">
+								<div class="col-md">
+									<dl>
+										<a href="/ko/media/newsDet.do?newsId=${col.id}">
+											<dt>
+												<img src="${contextPath }${col.uri}${col.thumnailId}"
+													alt="440-270.jpg" width="441" height="270">
+											</dt>
+											<dd>${col.title }</dd>
+											<dd>${col.createDate }</dd>
+										</a>
+									</dl>
+								</div>
+							</c:forEach>
 						</div>
 						<div class="hs-row">
 							<button class="btn btn-block m_auto btn_main"
@@ -366,7 +342,7 @@
 			});
 		</script>
 
-		<%@ include file="footer.jsp"%>
+		<%@ include file="/footer.jsp"%>
 
 	</div>
 </body>
