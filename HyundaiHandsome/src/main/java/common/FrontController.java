@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +17,10 @@ import member.*;
  *  
  *  1. 클라이언트의 요청을 FrontController에서 한 번에 처리
  *  2. Command 패턴을 함께 사용해, 각 요청의 직접적인 처리는 분리
+ *  3. COMPANY 관련, MEMBER 관련 서블릿 처리
  */
+
 //@WebServlet("*.do")
-//@WebServlet(urlPatterns = {"/company/*", "/member/*"})
 public class FrontController extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -58,22 +58,19 @@ public class FrontController extends HttpServlet{
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
 		String command = uri.substring(conPath.length());
-		
-		System.out.println("command:" + command);
+		// System.out.println("command:" + command);
 		
 		Command my_command = null;
 		String page = "";  		// 이동할 주소를 저장
 		Boolean flag = true;	// flag가 true일 경우 저장된 주소로 forward	
-	/*
-	 ************************************************************* MAIN
-	 */
-		if(command.equals("/main.do")) {
-			page = "/index.jsp";
-		}
+	
 	/*
 	 ************************************************************* COMPANY
+	 ***** 이지은 작성
+	 ***** HANDSOME 소개 페이지 (COMPANY)
+	 ***** 서버에서 처리할 기능은 없어, 각 JSP 담당 서블릿 생성은 생략
 	 */
-		else if(command.equals("/company/aboutHandsome.do")){	// COMPANY - ABOUT 한섬
+		if(command.equals("/company/aboutHandsome.do")){		// COMPANY - ABOUT 한섬
 			// my_command = new AboutHandsomeCommand();
 			// my_command.execute(request, response);
 			page = "/company/aboutHandsome.jsp";
@@ -101,7 +98,8 @@ public class FrontController extends HttpServlet{
 		
 	/*
 	 ************************************************************* MEMBER
-	 ***** 페이지 관리자만 접근 가능한 페이지
+	 ***** 이지은 작성
+	 ***** HANDSOME 페이지 관리자만 접근 가능한 페이지
 	 ***** 세션 존재 여부 및 로그인 여부를 확인 후 로직 수행
 	 ***** 로그인 상태가 아니라면 로그인 화면으로 이동
 	 */
@@ -126,7 +124,6 @@ public class FrontController extends HttpServlet{
 				
 				// 로그인에 성공할 경우
 				} else if (isLogon == true) {  // 페이지 관리 화면으로 이동
-					System.out.println("tdsfdfsdfsdfsdf:");
 					response.sendRedirect("/ko/member/listMember.do");
 					flag = false;  
 				
@@ -217,7 +214,7 @@ public class FrontController extends HttpServlet{
 				}	
 			}
 			
-		} else if(command.equals("/member/manageMedia.do")) {	// MEMBER - MEDIA UPLOAD
+		} else if(command.equals("/member/manageMedia.do")) {	// MEMBER - MEDIA 관리
 			// 세션 존재 여부 확인
 			HttpSession session = request.getSession(false);
 			

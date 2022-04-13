@@ -1,8 +1,7 @@
 package member;
 
-/*
- *  이지은 작성
- *  Member 관련 데이터 객체
+/*  이지은 작성
+ *  Member 관련 데이터 객체 VO
  */
 
 public class MemberVO {
@@ -11,14 +10,11 @@ public class MemberVO {
 	private String tel;
 	private String pwd;
 	
-	public MemberVO() {
-		System.out.println("MemberVO 생성자 호출");
-	}
+	public MemberVO() {}
 	
 	public MemberVO(String id) {
 		this.id = id;
 	}
-	
 	
 	public MemberVO(String id, String pwd) {
 		this.id = id;
@@ -69,5 +65,4 @@ public class MemberVO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-
 }

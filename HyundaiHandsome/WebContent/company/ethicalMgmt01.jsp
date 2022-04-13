@@ -15,8 +15,8 @@
 	    <meta name="description" content="삶의 모든 영역에서 아름다운 경험을 제공하는 스타일 크리에이터, 한섬"/>
 		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 	    <link rel="stylesheet" href="${contextPath}/css/font.css">
-	    <link rel="stylesheet" href="${contextPath}/css${contextPath}_common.css">
-	    <link rel="stylesheet" href="${contextPath}/css${contextPath}_style.css">
+	    <link rel="stylesheet" href="${contextPath}/css/ko_common.css">
+	    <link rel="stylesheet" href="${contextPath}/css/ko_style.css">
 	    <link rel="stylesheet" href="${contextPath}/css/swiper.min.css">
 	    <script src="${contextPath}/js/bootstrap.js"></script>
 	    <script src="${contextPath}/js/cmmn.js"></script>
@@ -31,17 +31,15 @@
 	</head>
 	<body>
 		<div class="wrap">  
-<%@ include file="../header.jsp"%>
-			<!--  container -->
+			<%@ include file="../header.jsp"%>
 			<div id="contents" class="container">
 				<div class="page-body-wrapper">
-					<!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 					<div class="hs-row box">
 						<ol class="breadcrumb col-r">
-							<li class="breadcrumb-item"><a href="/ko/main.do">HOME</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/aboutHandsome.do">COMPANY</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/ethicalMgmt01.do">윤리경영</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/ethicalMgmt01.do">그룹윤리경영</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/main.do">HOME</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/aboutHandsome.do">COMPANY</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/ethicalMgmt01.do">윤리경영</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/ethicalMgmt01.do">그룹윤리경영</a></li>
 						</ol>
 					</div>
 					<h2 class="hs-row tit_page tit-bg-none">
@@ -50,9 +48,9 @@
 					<div class="section box">
 						<div class="hs-row tabs">
 							<ul class="nav nav-tabs nav-justified rootTab">
-								<li class="on"><a href="/ko/company/ethicalMgmt01.do">그룹윤리경영</a></li><!-- 활성화된 페이지 li class="on" -->
-								<li><a href="/ko/company/ethicalMgmt02.do">그룹윤리강령</a></li>
-								<li><a href="/ko/company/ethicalMgmt03.do">임직원 윤리실천경영</a></li>
+								<li class="on"><a href="${contextPath}/company/ethicalMgmt01.do">그룹윤리경영</a></li>
+								<li><a href="${contextPath}/company/ethicalMgmt02.do">그룹윤리강령</a></li>
+								<li><a href="${contextPath}/company/ethicalMgmt03.do">임직원 윤리실천경영</a></li>
 							</ul>
 						</div>
 
@@ -113,21 +111,18 @@
 								</li>
 							</ul>
 						</div>
-
 					</div>
 					<div class="hs-row box-overspill page-turn"> <!-- page the turn -->
-						<a href="/ko/company/history01.do" class="col-md col-md-6 ">
+						<a href="${contextPath}/company/history01.do" class="col-md col-md-6 ">
 							<div class="align-left page-prev"><span>연혁</span></div>
 						</a>
-						<a href="/ko/company/wayToCome.do" class="col-md col-md-6 ">
+						<a href="${contextPath}/company/wayToCome.do" class="col-md col-md-6 ">
 							<div class="align-right page-next"><span>오시는 길</span></div>
 						</a>
 					</div>
-					<!-- // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 				</div>
 			</div>
-			<!-- // container -->
-<%@ include file="../footer.jsp"%>
-</div> <!-- div-wrap END -->
-</body>
+			<%@ include file="../footer.jsp"%>
+		</div> <!-- div-wrap END -->
+	</body>
 </html>

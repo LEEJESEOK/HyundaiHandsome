@@ -15,8 +15,8 @@
 	    <meta name="description" content="삶의 모든 영역에서 아름다운 경험을 제공하는 스타일 크리에이터, 한섬"/>
 		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 	    <link rel="stylesheet" href="${contextPath}/css/font.css">
-	    <link rel="stylesheet" href="${contextPath}/css${contextPath}_common.css">
-	    <link rel="stylesheet" href="${contextPath}/css${contextPath}_style.css">
+	    <link rel="stylesheet" href="${contextPath}/css/ko_common.css">
+	    <link rel="stylesheet" href="${contextPath}/css/ko_style.css">
 	    <link rel="stylesheet" href="${contextPath}/css/swiper.min.css">
 	    <script src="${contextPath}/js/bootstrap.js"></script>
 	    <script src="${contextPath}/js/cmmn.js"></script>
@@ -31,22 +31,20 @@
 	</head>
 	<body>
 		<div class="wrap">
-<%@ include file="../header.jsp"%>    
-<!--  container -->
+			<%@ include file="../header.jsp"%>    
 			<div id="contents" class="container">
 				<div class="page-body-wrapper">
-					<!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 					<div class="hs-row box">
 						<ol class="breadcrumb col-r">
-							<li class="breadcrumb-item"><a href="/ko/main.do">HOME</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/aboutHandsome.do">COMPANY</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/ceoMessage.do">CEO 메시지</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/main.do">HOME</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/aboutHandsome.do">COMPANY</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/ceoMessage.do">CEO 메시지</a></li>
 						</ol>
 					</div>
 					<h2 class="hs-row tit_page tit-bg-none">
 						<span><em class="f_jost">CEO 메시지</em></span>
 					</h2>
-					<div class="section box"> <!-- 섹션 1 -->
+					<div class="section box">
 						<div class="production">
 
 							<div class="prTxt">
@@ -84,18 +82,16 @@
 						</div>
 					</div>
 					<div class="hs-row box-overspill page-turn"> <!-- page the turn -->
-						<a href="/ko/company/aboutHandsome.do" class="col-md col-md-6 ">
+						<a href="${contextPath}/company/aboutHandsome.do" class="col-md col-md-6 ">
 							<div class="align-left page-prev"><span>ABOUT 한섬</span></div>
 						</a>
-						<a href="/ko/company/history01.do" class="col-md col-md-6 ">
+						<a href="${contextPath}/company/history01.do" class="col-md col-md-6 ">
 							<div class="align-right page-next"><span>연혁</span></div>
 						</a>
 					</div>
-					<!-- // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 				</div>
 			</div>
-			<!-- // container -->
-<%@ include file="../footer.jsp"%>
-</div> <!-- div-wrap END -->
-</body>
+			<%@ include file="../footer.jsp"%>
+		</div> <!-- div-wrap END -->
+	</body>
 </html>

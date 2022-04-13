@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
 <div id="header" class="header d-flex fixed-top">
 	<!--  Handsome 로고 -->
 	<h1 class="hs-top-logo">
@@ -24,12 +23,10 @@
 						<div class="drop-inner">
 							<ul class="drop-depth2-list">
 								<li><a href="${contextPath}/company/aboutHandsome.do"
-									class="drop-depth2-link" role="menuitem"> <span>ABOUT
-											한섬</span>
+									class="drop-depth2-link" role="menuitem"> <span>ABOUT 한섬</span>
 								</a></li>
 								<li><a href="${contextPath}/company/ceoMessage.do"
-									class="drop-depth2-link" role="menuitem"> <span>CEO
-											메시지</span>
+									class="drop-depth2-link" role="menuitem"> <span>CEO 메시지</span>
 								</a></li>
 								<li><a href="${contextPath}/company/history01.do"
 									class="drop-depth2-link" role="menuitem"> <span>연혁</span>
@@ -40,8 +37,7 @@
 								</a></li>
 
 								<li><a href="${contextPath}/company/wayToCome.do"
-									class="drop-depth2-link" role="menuitem"> <span>오시는
-											길</span>
+									class="drop-depth2-link" role="menuitem"> <span>오시는 길</span>
 								</a></li>
 							</ul>
 						</div>
