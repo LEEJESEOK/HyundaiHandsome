@@ -935,3 +935,5 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
     END sf_member_info;
 
 END pkg_handsome;
+/
+commit;

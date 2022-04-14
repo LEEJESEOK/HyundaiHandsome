@@ -15,8 +15,8 @@
 	    <meta name="description" content="삶의 모든 영역에서 아름다운 경험을 제공하는 스타일 크리에이터, 한섬"/>
 		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 	    <link rel="stylesheet" href="${contextPath}/css/font.css">
-	    <link rel="stylesheet" href="${contextPath}/css${contextPath}_common.css">
-	    <link rel="stylesheet" href="${contextPath}/css${contextPath}_style.css">
+	    <link rel="stylesheet" href="${contextPath}/css/ko_common.css">
+	    <link rel="stylesheet" href="${contextPath}/css/ko_style.css">
 	    <link rel="stylesheet" href="${contextPath}/css/swiper.min.css">
 	    <script src="${contextPath}/js/bootstrap.js"></script>
 	    <script src="${contextPath}/js/cmmn.js"></script>
@@ -31,31 +31,27 @@
 	</head>
 	<body>
 		<div class="wrap">
-<%@ include file="../header.jsp"%>		
-			<!--  container -->
+			<%@ include file="../header.jsp"%>
 			<div id="contents" class="container">
 				<div class="page-body-wrapper">
-					<!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 					<div class="hs-row box">
 						<ol class="breadcrumb col-r">
-							<li class="breadcrumb-item"><a href="/ko/main.do">HOME</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/history01.do">COMPANY</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/history01.do">연혁</a></li>
-							<li class="breadcrumb-item"><a href="/ko/company/history01.do">2012 ~ 현재</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/main.do">HOME</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/history01.do">COMPANY</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/history01.do">연혁</a></li>
+							<li class="breadcrumb-item"><a href="${contextPath}/company/history01.do">2012 ~ 현재</a></li>
 						</ol>
 					</div>
 					<h2 class="hs-row tit_page tit-bg-none">
 						<span>연혁</span>
-						<!-- <img src="${contextPath}/images/thumbs/company-bg-.jpg" alt="연혁"> -->
 					</h2>
-					<div class="section box"> <!-- 섹션 1 -->
+					<div class="section box">
 						<div class="hs-row tabs">
 							<ul class="nav nav-tabs nav-justified rootTab">
-								<li class="on"><a href="/ko/company/history01.do">2012 ~ 현재</a></li><!-- 활성화된 페이지 li class="on" -->
-								<li><a href="/ko/company/history02.do">1987 ~ 2011</a></li>
+								<li class="on"><a href="${contextPath}/company/history01.do">2012 ~ 현재</a></li>
+								<li><a href="${contextPath}/company/history02.do">1987 ~ 2011</a></li>
 							</ul>
 						</div>
-
 						<div class="hs-row clear yearArea">
 							<div class="col-md">
 								<img src="${contextPath}/company/images/thumbs/company-cont-3_1.jpg" alt="">
@@ -124,19 +120,7 @@
 							<div class="col-r">
 								<img src="${contextPath}/company/images/thumbs/company-cont-3_2.jpg" alt="">
 							</div>
-						</div><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/font.css">
-    <link rel="stylesheet" href="./css/ko_common.css">
-    <link rel="stylesheet" href="./css/ko_style.css">
-    <link rel="stylesheet" href="./css/swiper.min.css">
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/cmmn.js"></script>
-    <script src="./js/jquery-3.5.1.min.js"></script>
-    <script src="./js/swiper.min.js"></script>
-    <script src="./js/js.js"></script>
+						</div>
 						<div class="hs-row clear yearArea mb50">
 							<div class="col-md">
 								<img src="${contextPath}/company/images/thumbs/company-cont-3_3.jpg" alt="">
@@ -174,23 +158,18 @@
 								</ul>
 							</div>
 						</div>
-
 					</div>
 					<div class="hs-row box-overspill page-turn"> <!-- page the turn -->
-						<a href="/ko/company/ceoMessage.do" class="col-md col-md-6 ">
+						<a href="${contextPath}/company/ceoMessage.do" class="col-md col-md-6 ">
 							<div class="align-left page-prev"><span>CEO 메시지</span></div>
 						</a>
-
-						<a href="/ko/company/ethicalMgmt01.do" class="col-md col-md-6 ">
+						<a href="${contextPath}/company/ethicalMgmt01.do" class="col-md col-md-6 ">
 							<div class="align-right page-next"><span>윤리경영</span></div>
 						</a>
-
 					</div>
-					<!-- // ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 				</div>
 			</div>
-			<!-- // container -->
-<%@ include file="../footer.jsp"%>
-</div> <!-- div-wrap END -->
-</body>
+			%@ include file="../footer.jsp"%>
+		</div> <!-- div-wrap END -->
+	</body>
 </html>

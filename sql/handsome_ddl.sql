@@ -37,11 +37,43 @@ CREATE SEQUENCE member_seq INCREMENT BY 1 START WITH 1;
 DROP TABLE member CASCADE CONSTRAINTS;
 
 CREATE TABLE member (
-    name VARCHAR2(50) PRIMARY KEY, -- 회원 ID
-    tel  VARCHAR2(50) NOT NULL,    -- 회원 이름
-    id   VARCHAR2(50) NOT NULL,    -- 회원 연락처
+    name VARCHAR2(50) PRIMARY KEY, -- 회원 이름
+    tel  VARCHAR2(50) NOT NULL,    -- 회원 연락처
+    id   VARCHAR2(50) NOT NULL,    -- 회원 아이디
     pwd  VARCHAR2(400) NOT NULL     -- 회원 비밀번호 
 );
+
+/***************************************************************************
+트리거 : LOG_MEMBER
+프로그램 명 : member 테이블 로그 남기는 트리거
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-13  이지은   1. 최초작성
+***************************************************************************/
+CREATE OR REPLACE TRIGGER log_member AFTER
+    INSERT OR UPDATE OR DELETE ON member
+    FOR EACH ROW
+BEGIN
+    IF inserting THEN
+        BEGIN
+            INSERT INTO handsome_log (
+                id,
+                table_name,
+                crud,
+                log_content
+            ) VALUES (
+                handsome_log_seq.NEXTVAL,
+                'MEMBER',
+                'INSERT',
+                'MEMBER 테이블에 PK가 '
+                || :new.id
+                || '인 데이터가 INSERT 되었습니다.'
+            );
+        END;
+    END IF;
+END log_member;
+/
 
 /***************************************************************************
 테이블 : DISCLOSURE

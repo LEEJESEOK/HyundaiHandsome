@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
- 
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -36,7 +35,7 @@
 					<ul class="nav nav-tabs nav-justified rootTab">
 						<li class="on"><a href="${contextPath}/member/listMember.do">관리자 목록</a></li>
 						<li><a href="${contextPath}/member/addMember.do">관리자 추가</a></li>
-						<li><a href="${contextPath}/member/manageMedia.do">MEDIA UPLOAD</a></li>
+						<li><a href="${contextPath}/member/manageMedia.do">MEDIA 관리</a></li>
 					</ul>
 				</div>
 			</div>
