@@ -1845,6 +1845,8 @@ Insert into BRAND (ID,TYPE,NAME,SS,DESCRIPTION,MALL_TYPE,MALL_ID) values (28,1,'
 FOURM ¼은 현대백화점 전용 편집숍으로, 현대백화점과 한섬이 추구하는 특별한 
 가치와 새로운 경험을 제공합니다.
 ',2,'32');
+Insert into BRAND (ID,TYPE,NAME,SS,DESCRIPTION,MALL_TYPE,MALL_ID) values (29,2,'OERA','THE JOURNEY TO ETERNAL BEAUTY','<p>오에라는 스위스의 정교한 기술력을 바탕으로 탄생한 스킨케어 브랜드로,<br>새로운 관점에서 미적 기준을 제시하는 럭셔리 리추얼 스킨케어를 추구합니다.</p><p class="mb10">오에라의 핵심 원동력은 다양한 연구 결과를 적용한 독자 성분 크로노 엘릭서™와<br>흐트러진 피부 리듬을 케어해 피부 본연의 리듬을 바로 잡는 캘리브레이팅™ 시스템입니다.<br>이는 피부가 균형점, Zero-Balance Point에 도달할 수 있도록 이끌어주며<br>외부 자극에도 쉽게 흔들리지 않는 진정한 아름다움을 선사합니다.</p>',2,'08');
+Insert into BRAND (ID,TYPE,NAME,SS,DESCRIPTION,MALL_TYPE,MALL_ID) values (30,3,'the CASHMERE THINGS','SUSTAINABLE & VALUABLE LIFESTYLE','<p>the CASHMERE THINGS는 삶의 진정한 의미를 심플하고 간결하게 담아내 가치 있게<br>표현하는 지속가능한 라이프스타일을 지향합니다.<br>본질에 충실한 캐시미어 전문 브래드 입니다.</p><p class="mb10">실용적이면서 합리적인 가치 소비를 추구하며<br>the cashmere 브랜드 아이덴티티의 연장선으로 Kichen, Home Furnishing, <br>Bath, Fragrance 등 다양한 카테고리를 제안합니다.<br>집이라는 공간과 제품, 그리고 자신의 삶을 자연스럽게 하나의 완성된 스토리로 만들어<br>삶의 가치를 더욱 높여줍니다.</p>',2,'08');
 
 COMMIT;
 

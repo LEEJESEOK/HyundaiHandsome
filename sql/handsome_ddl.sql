@@ -221,110 +221,254 @@ FOR EACH ROW
     END LOG_IR_PDF;
 /
 /***************************************************************************
- 테이블 : BRAND_TYPE
- 프로그램 명 : BRAND의 분류 테이블
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
-DROP SEQUENCE brand_type_seq;
-
-CREATE SEQUENCE brand_type_seq INCREMENT BY 1 START WITH 1;
-
-DROP TABLE brand_type CASCADE CONSTRAINTS;
-
-CREATE TABLE brand_type (
-    id   NUMBER(4, 0),
-    name VARCHAR2(100),
-    CONSTRAINT brand_type_id_pk PRIMARY KEY ( id )
-);
-
-/***************************************************************************
- 테이블 : MALL_TYPE
- 프로그램 명 : 브랜드몰의 분류 테이블
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
-DROP SEQUENCE mall_type_seq;
-
-CREATE SEQUENCE mall_type_seq INCREMENT BY 1 START WITH 1;
-
-DROP TABLE mall_type CASCADE CONSTRAINTS;
-
-CREATE TABLE mall_type (
-    id   NUMBER,
-    name VARCHAR2(100),
-    CONSTRAINT mall_type_id_pk PRIMARY KEY ( id )
-);
-
-/***************************************************************************
- 테이블 : BRAND
- 프로그램 명 : BRAND 정보 테이블
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+테이블 : BRAND
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 DROP SEQUENCE brand_seq;
 
-CREATE SEQUENCE brand_seq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE brand_seq MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER NOCYCLE NOKEEP
+NOSCALE GLOBAL;
 
 DROP TABLE brand CASCADE CONSTRAINTS;
 
 CREATE TABLE brand (
     id          NUMBER(4, 0),
     type        NUMBER(4, 0),
-    name        VARCHAR2(100),
-    ss          VARCHAR2(100),
-    description VARCHAR2(4000),
+    name        VARCHAR2(100 BYTE),
+    ss          VARCHAR2(100 BYTE),
+    description VARCHAR2(4000 BYTE),
     mall_type   NUMBER,
-    mall_id     VARCHAR2(10),
-    CONSTRAINT brand_id_pk PRIMARY KEY ( id ),
-    FOREIGN KEY ( type )
-        REFERENCES brand_type ( id ),
-    FOREIGN KEY ( mall_type )
-        REFERENCES mall_type ( id )
+    mall_id     VARCHAR2(10 BYTE)
+)
+SEGMENT CREATION IMMEDIATE
+PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+    STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT
+    FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+TABLESPACE users;
+
+CREATE UNIQUE INDEX brand_id_pk ON
+    brand (
+        id
+    )
+        PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users;
+
+CREATE UNIQUE INDEX brand_name_uk ON
+    brand (
+        name
+    )
+        PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users;
+
+ALTER TABLE brand MODIFY (
+    type
+        CONSTRAINT brand_type_nn NOT NULL ENABLE
 );
 
+ALTER TABLE brand MODIFY (
+    name
+        CONSTRAINT brand_name_nn NOT NULL ENABLE
+);
+
+ALTER TABLE brand
+    ADD CONSTRAINT brand_id_pk PRIMARY KEY ( id )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users
+    ENABLE;
+
+ALTER TABLE brand
+    ADD CONSTRAINT brand_name_uk UNIQUE ( name )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users
+    ENABLE;
+
 /***************************************************************************
- 테이블 : BRAND_IMG
- 프로그램 명 : 브랜드의 이미지 테이블
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+테이블 : BRAND_TYPE
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
+DROP SEQUENCE brand_type_seq;
+
+CREATE SEQUENCE brand_type_seq MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER NOCYCLE
+NOKEEP NOSCALE GLOBAL;
+
+DROP TABLE brand_type CASCADE CONSTRAINTS;
+
+CREATE TABLE brand_type (
+    id   NUMBER(4, 0),
+    name VARCHAR2(100 BYTE)
+)
+SEGMENT CREATION IMMEDIATE
+PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+    STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT
+    FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+TABLESPACE users;
+
+ALTER TABLE brand_type MODIFY (
+    name
+        CONSTRAINT brand_type_name_nn NOT NULL ENABLE
+);
+
+ALTER TABLE brand_type
+    ADD CONSTRAINT brand_type_id_pk PRIMARY KEY ( id )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users
+    ENABLE;
+
+ALTER TABLE brand_type
+    ADD CONSTRAINT brand_type_name_uk UNIQUE ( name )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users
+    ENABLE;
+
+ALTER TABLE brand
+    ADD CONSTRAINT brand_type_fk FOREIGN KEY ( type )
+        REFERENCES brand_type ( id )
+    ENABLE;
+      
+      
+/***************************************************************************
+테이블 : MALL_TYPE
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
+DROP SEQUENCE mall_type_seq;
+
+CREATE SEQUENCE mall_type_seq MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER NOCYCLE NOKEEP
+NOSCALE GLOBAL;
+
+DROP TABLE mall_type CASCADE CONSTRAINTS;
+
+CREATE TABLE mall_type (
+    id   NUMBER,
+    name VARCHAR2(100 BYTE)
+)
+SEGMENT CREATION IMMEDIATE
+PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+    STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT
+    FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+TABLESPACE users;
+
+CREATE UNIQUE INDEX mall_type_id_pk ON
+    mall_type (
+        id
+    )
+        PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users;
+
+CREATE UNIQUE INDEX mall_type_uri_uk ON
+    mall_type (
+        name
+    )
+        PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users;
+
+ALTER TABLE mall_type MODIFY (
+    name
+        CONSTRAINT mall_type_uri_nn NOT NULL ENABLE
+);
+
+ALTER TABLE mall_type
+    ADD CONSTRAINT mall_type_id_pk PRIMARY KEY ( id )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users
+    ENABLE;
+
+ALTER TABLE mall_type
+    ADD CONSTRAINT mall_type_uri_uk UNIQUE ( name )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+            STORAGE ( INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL
+            DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT )
+        TABLESPACE users
+    ENABLE;
+
+ALTER TABLE brand
+    ADD CONSTRAINT mall_type_fk FOREIGN KEY ( mall_type )
+        REFERENCES mall_type ( id )
+    ENABLE;
+      
+      
+/***************************************************************************
+테이블 : BRAND_IMG
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 DROP SEQUENCE brand_img_seq;
 
-CREATE SEQUENCE brand_img_seq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE brand_img_seq MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER NOCYCLE NOKEEP
+NOSCALE GLOBAL;
 
 DROP TABLE brand_img CASCADE CONSTRAINTS;
 
 CREATE TABLE brand_img (
     id       NUMBER(6, 0),
     brand_id NUMBER(4, 0),
-    uri      VARCHAR2(2000 BYTE),
-    CONSTRAINT brand_img_id_pk PRIMARY KEY ( id ),
-    FOREIGN KEY ( brand_id )
-        REFERENCES brand ( id )
-);
+    uri      VARCHAR2(2000 BYTE)
+)
+SEGMENT CREATION DEFERRED
+PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING TABLESPACE users;
 
+CREATE UNIQUE INDEX brand_img_id_pk ON
+    brand_img (
+        id
+    )
+        PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS TABLESPACE users;
+
+ALTER TABLE brand_img
+    ADD CONSTRAINT brand_img_id_pk PRIMARY KEY ( id )
+        USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS TABLESPACE users
+    ENABLE;
+
+ALTER TABLE brand_img
+    ADD CONSTRAINT brand_img_brand_id_fk FOREIGN KEY ( brand_id )
+        REFERENCES brand ( id )
+    ENABLE;
+
+      
 /***************************************************************************
- 뷰 : BEAUTY_BRAND_INFO
- 프로그램 명 : type이 beauty인 브랜드의 데이터를 정의
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+뷰 : BEAUTY_BRAND_INFO
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 DROP VIEW beauty_brand_info;
 
 CREATE OR REPLACE FORCE EDITIONABLE VIEW beauty_brand_info (
@@ -352,14 +496,14 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW beauty_brand_info (
         id;
 
 /***************************************************************************
- 뷰 : FASHION_BRAND_INFO
- 프로그램 명 : type이 fashion인 브랜드의 데이터를 정의
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+뷰 : FASHION_BRAND_INFO
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 DROP VIEW fashion_brand_info;
 
 CREATE OR REPLACE FORCE EDITIONABLE VIEW fashion_brand_info (
@@ -387,14 +531,14 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW fashion_brand_info (
         id;
 
 /***************************************************************************
- 뷰 : LIFESTYLE_BRAND_INFO
- 프로그램 명 : type이 LifeStyle인 브랜드의 데이터를 정의
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+뷰 : LIFESTYLE_BRAND_INFO
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 DROP VIEW lifestyle_brand_info;
 
 CREATE OR REPLACE FORCE EDITIONABLE VIEW lifestyle_brand_info (
@@ -422,14 +566,14 @@ CREATE OR REPLACE FORCE EDITIONABLE VIEW lifestyle_brand_info (
         id;
 
 /***************************************************************************
- 트리거 : FILTER_UPPER_BRAND_TYPE
- 프로그램 명 : name을 입력할 때 대문자로 고정하는 트리거
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+트리거 : FILTER_UPPER_BRAND_TYPE
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 CREATE OR REPLACE EDITIONABLE TRIGGER filter_upper_brand_type BEFORE
     INSERT OR UPDATE ON brand_type
     FOR EACH ROW
@@ -438,16 +582,17 @@ BEGIN
 END;
 /
 
+ALTER TRIGGER filter_upper_brand_type ENABLE;
 
 /***************************************************************************
- 트리거 : LOG_BRAND
- 프로그램 명 : BRAND 테이블 로그 트리거
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+트리거 : LOG_BRAND
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 CREATE OR REPLACE EDITIONABLE TRIGGER log_brand AFTER
     INSERT OR UPDATE OR DELETE ON brand
     FOR EACH ROW
@@ -505,15 +650,17 @@ BEGIN
 END log_brand;
 /
 
+ALTER TRIGGER log_brand ENABLE;
+
 /***************************************************************************
- 트리거 : LOG_BRAND_IMG
- 프로그램 명 : BRAND_IMG 테이블 로그 트리거
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+트리거 : LOG_BRAND_IMG
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 CREATE OR REPLACE EDITIONABLE TRIGGER log_brand_img AFTER
     INSERT OR UPDATE OR DELETE ON brand_img
     FOR EACH ROW
@@ -571,15 +718,17 @@ BEGIN
 END log_brand_type;
 /
 
+ALTER TRIGGER log_brand_img ENABLE;
+
 /***************************************************************************
- 트리거 : LOG_BRAND_TYPE
- 프로그램 명 : BRAND_TYPE의 로그 테이블
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+트리거 : LOG_BRAND_TYPE
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 CREATE OR REPLACE EDITIONABLE TRIGGER log_brand_type AFTER
     INSERT OR UPDATE OR DELETE ON brand_type
     FOR EACH ROW
@@ -637,16 +786,17 @@ BEGIN
 END log_brand_type;
 /
 
+ALTER TRIGGER log_brand_type ENABLE;
 
 /***************************************************************************
- 트리거 : LOG_MALL_TYPE
- 프로그램 명 : MALL_TYPE의 로그 테이블
- ----------------------------------------------------------------------------
- ----  ----------  ------  --------------------------------------------------    
- 버전    작업일자    작성자   Description
- ----  ----------  ------  --------------------------------------------------
- 1.0   2022-04-05  이제석   1. 최초작성
- ***************************************************************************/
+트리거 : LOG_MALL_TYPE
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05  이제석   1. 최초작성
+***************************************************************************/
 CREATE OR REPLACE EDITIONABLE TRIGGER log_mall_type AFTER
     INSERT OR UPDATE OR DELETE ON mall_type
     FOR EACH ROW
@@ -703,6 +853,8 @@ BEGIN
     END IF;
 END log_brand_type;
 /
+
+ALTER TRIGGER log_mall_type ENABLE;
 
 /***************************************************************************
 테이블 : IMAGE
