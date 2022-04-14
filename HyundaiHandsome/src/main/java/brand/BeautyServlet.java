@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class BeautyServlet
+ * beauty 페이지 처리 서블릿
  */
 @WebServlet("/brand/beauty.do")
 public class BeautyServlet extends HttpServlet {

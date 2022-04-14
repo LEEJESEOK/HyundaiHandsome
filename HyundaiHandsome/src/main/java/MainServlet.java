@@ -14,6 +14,7 @@ import media.news.NewsVO;
 
 /**
  * Servlet implementation class MainServlet
+ * main.do 처리 서블릿
  */
 @WebServlet("/main.do")
 public class MainServlet extends HttpServlet {
@@ -49,12 +50,9 @@ public class MainServlet extends HttpServlet {
 
 	void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// TODO NewsDAO select
-
+		// 메인화면에 표시할 최근 3개 기사
 		List<NewsVO> newsList = NewsDAO.getInstance().selectNewsList(1);
-
 		List<NewsVO> news = newsList.subList(0, 3);
-
 		request.setAttribute("news", news);
 
 		request.getRequestDispatcher("/main.jsp").forward(request, response);

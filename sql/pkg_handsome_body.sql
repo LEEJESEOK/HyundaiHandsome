@@ -1,5 +1,6 @@
 CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
 -- 제석
+    -- 브랜드 정보 테이블 insert 프로시저
     PROCEDURE sp_insert_brand (
         p_type        brand_type.name%TYPE,
         p_name        brand.name%TYPE,
@@ -30,6 +31,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
         COMMIT;
     END;
 
+    -- 브랜드 정보 테이블 update 프로시저
     PROCEDURE sp_update_brand (
         p_type        brand_type.name%TYPE,
         p_name        brand.name%TYPE,
@@ -53,6 +55,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
         COMMIT;
     END;
 
+    -- 브랜드 정보 테이블 delete 프로시저
     PROCEDURE sp_delete_brand (
         p_id brand.id%TYPE
     ) IS
@@ -64,8 +67,136 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
         COMMIT;
     END;
 
+    -- 브랜드 이미지 insert 프로시저
+    PROCEDURE sp_insert_brand_img (
+        p_brand_id brand_img.brand_id%TYPE,
+        p_uri      brand_img.uri%TYPE
+    ) IS
+    BEGIN
+        INSERT INTO brand_img (
+            id,
+            brand_id,
+            uri
+        ) VALUES (
+            brand_img_seq.NEXTVAL,
+            p_brand_id,
+            p_uri
+        );
+
+        COMMIT;
+    END;
+
+    -- 브랜드 이미지 update 프로시저
+    PROCEDURE sp_update_brand_img (
+        p_id       brand_img.id%TYPE,
+        p_brand_id brand_img.brand_id%TYPE,
+        p_uri      brand_img.uri%TYPE
+    ) IS
+    BEGIN
+        UPDATE brand_img
+        SET
+            brand_id = p_brand_id,
+            uri = p_uri
+        WHERE
+            id = p_id;
+
+        COMMIT;
+    END;
+
+    -- 브랜드 이미지 delete 프로시저
+    PROCEDURE sp_delete_brand_img (
+        p_id brand_img.id%TYPE
+    ) IS
+    BEGIN
+        DELETE FROM brand_img
+        WHERE
+            id = p_id;
+
+        COMMIT;
+    END;
+
+    -- 패션 브랜드 select 함수
+    FUNCTION sf_select_fashion_brand RETURN select_brand_table
+        PIPELINED
+    IS
+        v_brand_row select_brand_type;
+    BEGIN
+        FOR rec_data IN (
+            SELECT 
+                brand.*,
+                popheaduri,
+                popuri,
+                thumbnailuri
+            FROM
+                brand,
+                (
+                    SELECT 
+                        pophead.uri   popheaduri,
+                        pop.uri       popuri,
+                        thumbnail.uri thumbnailuri
+                    FROM
+                             brand_img pophead
+                        JOIN brand_img pop ON pophead.brand_id = pop.brand_id
+                                              AND pophead.uri > pop.uri
+                        JOIN brand_img thumbnail ON pop.brand_id = thumbnail.brand_id
+                                                    AND pop.uri > thumbnail.uri
+                                                    AND thumbnail.uri IS NOT NULL
+                    ORDER BY
+                        pophead.id
+                )
+            WHERE
+                type = sf_brand_type_index('fashion')
+        ) LOOP
+            v_brand_row.id := rec_data.id;
+            v_brand_row.type := rec_data.type;
+            v_brand_row.name := rec_data.name;
+            v_brand_row.ss := rec_data.ss;
+            v_brand_row.description := rec_data.description;
+            v_brand_row.malluri := sf_encode_malluri(rec_data.mall_type, rec_data.mall_id);
+            v_brand_row.thumbnailuri := rec_data.thumbnailuri;
+            v_brand_row.popheaduri := rec_data.popheaduri;
+            v_brand_row.popuri := rec_data.popuri;
+            PIPE ROW ( v_brand_row );
+        END LOOP;
+    END;
+
+    FUNCTION sf_select_one_brand (
+        p_brand_type_name brand_type.name%TYPE
+    ) RETURN select_brand_table
+        PIPELINED
+    IS
+        v_brand_row select_brand_type;
+    BEGIN
+        FOR rec_data IN (
+            SELECT
+                brand.*,
+                pophead.uri popheaduri,
+                pop.uri    popuri
+            FROM
+                     brand
+                JOIN brand_img pophead ON brand.id = pophead.brand_id
+                JOIN brand_img pop ON pophead.brand_id = pop.brand_id
+                                      AND pophead.uri < pop.uri
+            WHERE
+                brand.type = sf_brand_type_index(p_brand_type_name)
+        ) LOOP
+            v_brand_row.id := rec_data.id;
+            v_brand_row.type := rec_data.type;
+            v_brand_row.name := rec_data.name;
+            v_brand_row.ss := rec_data.ss;
+            v_brand_row.description := rec_data.description;
+            v_brand_row.malluri := sf_encode_malluri(rec_data.mall_type, rec_data.mall_id);
+            v_brand_row.popheaduri := rec_data.popheaduri;
+            v_brand_row.popuri := rec_data.popuri;
+            PIPE ROW ( v_brand_row );
+        END LOOP;
+    END;
+    
+    -- mall_type id 검색 함수
+    -- param : mall_type.name
+    -- return : mall_type.id
     FUNCTION sf_mall_type_index (
-        p_type mall_type.name%TYPE
+        p_name mall_type.name%TYPE
     ) RETURN mall_type.id%TYPE IS
         v_ret mall_type.id%TYPE;
     BEGIN
@@ -75,13 +206,16 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
         FROM
             mall_type
         WHERE
-            upper(name) LIKE upper(p_type);
+            upper(name) LIKE upper(p_name);
 
         RETURN v_ret;
     END;
 
+    -- brand_type id 검색 함수
+    -- param : brand_type.name
+    -- return : brand_type.id
     FUNCTION sf_brand_type_index (
-        p_type brand_type.name%TYPE
+        p_name brand_type.name%TYPE
     ) RETURN brand_type.id%TYPE IS
         v_ret brand_type.id%TYPE;
     BEGIN
@@ -91,7 +225,32 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
         FROM
             brand_type
         WHERE
-            upper(name) LIKE upper(p_type);
+            upper(name) LIKE upper(p_name);
+
+        RETURN v_ret;
+    END;
+
+    -- mallurl 반환 함수
+    -- param : brand.mall_type, brand.mall_id
+    -- return : url
+    -- mall_type에 따라 다른 형식의 브랜드관 링크 반환
+    FUNCTION sf_encode_malluri (
+        p_mall_type brand.mall_type%TYPE,
+        p_mall_id   brand.mall_id%TYPE
+    ) RETURN VARCHAR2 IS
+        v_ret VARCHAR2(2000);
+    BEGIN
+        CASE p_mall_type
+            WHEN 1 THEN
+                v_ret := 'http://www.thehandsome.com/ko/b/br' || p_mall_id;
+            WHEN 2 THEN
+                v_ret := 'http://www.thehandsome.com/ko/c/br'
+                         || p_mall_id
+                         || '/br'
+                         || p_mall_id;
+            WHEN 3 THEN
+                v_ret := 'https://www.hfashionmall.com/display/brand?brndCtgryNo=' || p_mall_id;
+        END CASE;
 
         RETURN v_ret;
     END;
@@ -884,7 +1043,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
             p_name,
             p_tel,
             p_id,
-            p_pwd
+            sys.FUNC_ENCRYPT(p_pwd)
         );
 
         COMMIT;
@@ -904,7 +1063,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
             member
         WHERE
                 id = p_id
-            AND pwd = p_pwd;
+            AND SYS.FUNC_DECRYPT(pwd) = p_pwd;
 
         RETURN v_login;
     END sf_member_login;
