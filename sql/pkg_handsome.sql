@@ -285,7 +285,7 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
     -- 전체 공시정보 수 조회
     FUNCTION fn_selecttotdisclosure RETURN NUMBER;
 
-    -- RETRUN ROW TYPE
+    -- 레코드 타입 생성
     TYPE disclosure_type IS RECORD (
         disclosure_id   NUMBER(10),
         disclosure_name VARCHAR2(200),
@@ -293,7 +293,7 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
         indate          VARCHAR2(10),
         url             VARCHAR2(100)
     );
-    -- RETURN 할 ROW TYPE ARRAY
+    -- 반환할 테이블 타입 생성
     TYPE disclosure_table IS
         TABLE OF disclosure_type;
 
