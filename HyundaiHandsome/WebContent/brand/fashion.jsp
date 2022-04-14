@@ -4,6 +4,7 @@
 <%@ page import="brand.BrandDAO, brand.BrandVO, brand.FashionServlet"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -35,24 +36,24 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon.ico"
+<link rel="icon" href="${contextPath}/images/common/favicon.ico"
 	type="image/x-icon" />
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/common/favicon.ico"
+<link rel="shortcut icon" href="${contextPath}/images/common/favicon.ico"
 	type="image/x-icon" />
 <link rel="apple-touch-icon"
-	href="${pageContext.request.contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
-<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon-32x32.png"
+	href="${contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" href="${contextPath}/images/common/favicon-32x32.png"
 	sizes="32x32" type="image/png" />
-<link rel="icon" href="${pageContext.request.contextPath}/images/common/favicon-16x16.png"
+<link rel="icon" href="${contextPath}/images/common/favicon-16x16.png"
 	sizes="16x16" type="image/png" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper.min.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css${pageContext.request.contextPath}_common.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css${pageContext.request.contextPath}_style.css" />
-<script src="${pageContext.request.contextPath}/js/jquery-3.5.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/swiper.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-<script src="${pageContext.request.contextPath}/js/cmmn.js"></script>
+<link rel="stylesheet" href="${contextPath}/css/font.css" />
+<link rel="stylesheet" href="${contextPath}/css/swiper.min.css" />
+<link rel="stylesheet" href="${contextPath}/css/ko_common.css" />
+<link rel="stylesheet" href="${contextPath}/css/ko_style.css" />
+<script src="${contextPath}/js/jquery-3.5.1.min.js"></script>
+<script src="${contextPath}/js/swiper.min.js"></script>
+<script src="${contextPath}/js/bootstrap.js"></script>
+<script src="${contextPath}/js/cmmn.js"></script>
 </head>
 
 <body>
@@ -69,67 +70,67 @@
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo1.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo1.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-time.jpg" class="swiper--img"
+								<img src="${contextPath}/images/thumbs/brand-time.jpg" class="swiper--img"
 									alt="">
 							</div>
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo2.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo2.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-system.jpg"
+								<img src="${contextPath}/images/thumbs/brand-system.jpg"
 									class="swiper--img" alt="">
 							</div>
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo3.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo3.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-sjsj.jpg" class="swiper--img"
+								<img src="${contextPath}/images/thumbs/brand-sjsj.jpg" class="swiper--img"
 									alt="">
 							</div>
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo4.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo4.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-lanvin-collection.jpg"
+								<img src="${contextPath}/images/thumbs/brand-lanvin-collection.jpg"
 									class="swiper--img" alt="">
 							</div>
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo5.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo5.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-the-cashmere.jpg"
+								<img src="${contextPath}/images/thumbs/brand-the-cashmere.jpg"
 									class="swiper--img" alt="">
 							</div>
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo6.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo6.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-time-homme.jpg"
+								<img src="${contextPath}/images/thumbs/brand-time-homme.jpg"
 									class="swiper--img" alt="">
 							</div>
 							<div class="swiper-slide">
 								<p class="swiper--logo">
-									<img src="${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo7.png" alt="">
+									<img src="${contextPath}/images/thumbs/bdlogo/brandLogo7.png" alt="">
 								</p>
-								<img src="${pageContext.request.contextPath}/images/thumbs/brand-system-homme.jpg"
+								<img src="${contextPath}/images/thumbs/brand-system-homme.jpg"
 									class="swiper--img" alt="">
 							</div>
 						</div>
 						<!-- Add Arrows -->
 						<div class="swiper-pagination"></div>
 						<div class="swiper-button-next swipnav"
-							style="background-image: url('${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo2.png');"></div>
+							style="background-image: url('${contextPath}/images/thumbs/bdlogo/brandLogo2.png');"></div>
 						<div class="swiper-button-prev swipnav"
-							style="background-image: url('${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo4.png');"></div>
+							style="background-image: url('${contextPath}/images/thumbs/bdlogo/brandLogo4.png');"></div>
 					</div>
 				</div>
 				<div class="hs-row box">
 					<ol class="breadcrumb col-r">
-						<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/main.do">HOME</a></li>
-						<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/brand/fashion.do">BRAND</a></li>
-						<li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/brand/fashion.do">패션</a></li>
+						<li class="breadcrumb-item"><a href="${contextPath}/main.do">HOME</a></li>
+						<li class="breadcrumb-item"><a href="${contextPath}/brand/fashion.do">BRAND</a></li>
+						<li class="breadcrumb-item"><a href="${contextPath}/brand/fashion.do">패션</a></li>
 					</ol>
 				</div>
 
@@ -159,7 +160,7 @@
 												<li class="cubes-item"><a href="#myModal"
 													data-toggle="modal" data-target="#myModal" data="${col}">
 														<img
-														src="${pageContext.request.contextPath}/images/thumbs/brand-list-1_${brands[col].id }.jpg"
+														src="${contextPath}/images/thumbs/brand-list-1_${brands[col].id }.jpg"
 														alt=""> <span>${brands[col].name }</span>
 												</a></li>
 											</c:if>
@@ -195,7 +196,7 @@
 											<div class="swiper-slide swip-bg" id="brand${brand.name }">
 												<div class="hs-row box clear">
 													<div class="col-md">
-														<img src="${pageContext.request.contextPath}/images/thumbs/brand-pophead-${brand.id}.jpg"
+														<img src="${contextPath}/images/thumbs/brand-pophead-${brand.id}.jpg"
 															alt="${brand.name } 브랜드 소개에 대한 시작 이미지">
 															<div class="brand-info">
 																<p class="brandName">${brand.name }</p>
@@ -209,7 +210,7 @@
 															</div>
 													</div>
 													<div class="col-r">
-														<img src="${pageContext.request.contextPath}/images/thumbs/brand-pop-${brand.id}.jpg"
+														<img src="${contextPath}/images/thumbs/brand-pop-${brand.id}.jpg"
 															alt="${brand.name } 브랜드 소개에 대한 대표 이미지">
 													</div>
 												</div>
@@ -240,12 +241,12 @@
 					});
 
 					function goBrandPav01(brNum) {
-						window.open('http://www.thehandsome.com${pageContext.request.contextPath}/b/br'
+						window.open('http://www.thehandsome.com/ko/b/br'
 								+ brNum);
 					}
 
 					function goBrandPav02(brNum) {
-						window.open('http://www.thehandsome.com${pageContext.request.contextPath}/c/br'
+						window.open('http://www.thehandsome.com/ko/c/br'
 								+ brNum + '/br' + brNum);
 					}
 
@@ -298,11 +299,11 @@
 						}
 						$(".swiper-button-next").css(
 								"background-image",
-								"url('${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo"
+								"url('${contextPath}/images/thumbs/bdlogo/brandLogo"
 										+ nextIndex + ".png')");
 						$(".swiper-button-prev").css(
 								"background-image",
-								"url('${pageContext.request.contextPath}/images/thumbs/bdlogo/brandLogo"
+								"url('${contextPath}/images/thumbs/bdlogo/brandLogo"
 										+ prevIndex + ".png')");
 					}
 				},

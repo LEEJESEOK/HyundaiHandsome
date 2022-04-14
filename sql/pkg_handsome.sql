@@ -1,22 +1,32 @@
 CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
 -- 제석
-    FUNCTION sf_mall_type_index (
-        p_type mall_type.name%TYPE
-    ) RETURN mall_type.id%TYPE;
-
-    FUNCTION sf_brand_type_index (
-        p_type brand_type.name%TYPE
-    ) RETURN brand_type.id%TYPE;
-
+    --  브랜드 정보 select 결과 레코드
+    TYPE select_brand_type IS RECORD (
+        id           brand.id%TYPE,
+        type         brand.type%TYPE,
+        name         brand.name%TYPE,
+        ss           brand.ss%TYPE,
+        description  brand.description%TYPE,
+        malluri      VARCHAR2(2000),
+        thumbnailuri brand_img.uri%TYPE,
+        popheaduri   brand_img.uri%TYPE,
+        popuri       brand_img.uri%TYPE
+    );
+    -- 브랜드 정보 select 결과 테이블
+    TYPE select_brand_table IS
+        TABLE OF select_brand_type;
+        
+    -- 브랜드 정보 테이블 insert 프로시저
     PROCEDURE sp_insert_brand (
         p_type        brand_type.name%TYPE,
-        p_name        brand.name%TYPE,
+        p_name        brand.name%TYPE,          -- 브랜드 이름
         p_ss          brand.ss%TYPE,
-        p_description brand.description%TYPE,
-        p_mall_type   brand_type.name%TYPE,
-        p_mall_id     brand.mall_id%TYPE
+        p_description brand.description%TYPE,   -- 브랜드 설명
+        p_mall_type   brand_type.name%TYPE,     -- 브랜드관 종류
+        p_mall_id     brand.mall_id%TYPE        -- 브랜드관 id
     );
 
+    -- 브랜드 정보 테이블 update 프로시저
     PROCEDURE sp_update_brand (
         p_type        brand_type.name%TYPE,
         p_name        brand.name%TYPE,
@@ -25,10 +35,62 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
         p_mall_type   brand_type.name%TYPE,
         p_mall_id     brand.mall_id%TYPE
     );
-
+    
+    -- 브랜드 정보 테이블 delete 프로시저
     PROCEDURE sp_delete_brand (
         p_id brand.id%TYPE
-    ) ;
+    );
+
+    -- 브랜드 이미지 insert 프로시저
+    PROCEDURE sp_insert_brand_img (
+        p_brand_id brand_img.brand_id%TYPE,
+        p_uri      brand_img.uri%TYPE
+    );
+
+    -- 브랜드 이미지 update 프로시저
+    PROCEDURE sp_update_brand_img (
+        p_id       brand_img.id%TYPE,
+        p_brand_id brand_img.brand_id%TYPE,
+        p_uri      brand_img.uri%TYPE
+    );
+
+    -- 브랜드 이미지 delete 프로시저
+    PROCEDURE sp_delete_brand_img (
+        p_id brand_img.id%TYPE
+    );
+
+    -- 패션 브랜드 select 함수
+    FUNCTION sf_select_fashion_brand RETURN select_brand_table
+        PIPELINED;
+
+    --
+    FUNCTION sf_select_one_brand (
+        p_brand_type_name brand_type.name%TYPE
+    ) RETURN select_brand_table
+        PIPELINED;
+
+    -- mall_type id 검색 함수
+    -- param : mall_type.name
+    -- return : mall_type.id
+    FUNCTION sf_mall_type_index (
+        p_name mall_type.name%TYPE
+    ) RETURN mall_type.id%TYPE;
+
+    -- brand_type id 검색 함수
+    -- param : brand_type.name
+    -- return : brand_type.id
+    FUNCTION sf_brand_type_index (
+        p_name brand_type.name%TYPE
+    ) RETURN brand_type.id%TYPE;
+
+    -- mallurl 반환 함수
+    -- param : brand.mall_type, brand.mall_id
+    -- return : url
+    -- mall_type에 따라 다른 형식의 브랜드관 링크 반환
+    FUNCTION sf_encode_malluri (
+        p_mall_type brand.mall_type%TYPE,
+        p_mall_id   brand.mall_id%TYPE
+    ) RETURN VARCHAR2;
 
 -- 석준
     TYPE select_news_list_type IS RECORD (

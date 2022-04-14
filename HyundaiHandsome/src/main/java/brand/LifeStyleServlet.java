@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class LifeStyleServlet
+ * LifeStyle 처리 서블릿
  */
 @WebServlet("/brand/lifeStyle.do")
 public class LifeStyleServlet extends HttpServlet {
