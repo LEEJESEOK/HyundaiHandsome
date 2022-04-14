@@ -2,6 +2,9 @@ package brand;
 
 import lombok.Data;
 
+/*
+ * Brand 테이블 VO(Value Object)
+ */
 @Data
 public class BrandVO {
 	protected int id;

@@ -2,12 +2,14 @@ package brand;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import util.DBManager;
 
+/**
+ * Brand 테이블 DAO(Data Access Object)
+ */
 public class BrandDAO {
 	static BrandDAO instance = new BrandDAO();
 
@@ -15,6 +17,9 @@ public class BrandDAO {
 		return instance;
 	}
 
+	/*
+	 * Fashion 브랜드 정보 select
+	 */
 	public ArrayList<BrandVO> selectFashionBrands() {
 		ArrayList<BrandVO> list = new ArrayList<>();
 
@@ -81,6 +86,9 @@ public class BrandDAO {
 		return list;
 	}
 
+	/*
+	 * Beauty 브랜드 한개 반환
+	 */
 	public BrandVO selectBeautyBrand() {
 		BrandVO brand = new BrandVO();
 
@@ -145,6 +153,9 @@ public class BrandDAO {
 		return list;
 	}
 
+	/*
+	 * LifeStyle 브랜드 한개 반환
+	 */
 	public BrandVO selectLifeStyleBrand() {
 		BrandVO brand = new BrandVO();
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class FashionServlet
+ * fashion 페이지 처리 서블릿
  */
 @WebServlet("/brand/fashion.do")
 public class FashionServlet extends HttpServlet {
