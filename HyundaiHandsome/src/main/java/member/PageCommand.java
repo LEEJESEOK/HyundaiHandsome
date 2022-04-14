@@ -23,7 +23,7 @@ public class PageCommand implements Command {
 		HttpSession session = request.getSession();  // 현재 세션에 저장된 속성 값 확인
 		String user_id = (String)session.getAttribute("login_id");
 		
-		MemberDAO memberDAO = new MemberDAO();  // MemberDAO 객체 생성
+		MemberDAO memberDAO = MemberDAO.getInstance();  // MemberDAO 객체 생성
 		MemberVO memberVO = new MemberVO(user_id);  // MemberVO 객체 생성
 		List<MemberVO> info = memberDAO.getInfo(memberVO);  // 로그인한 아이디와 일치하는 데이터 확인, 결과를 info에 저장
 		

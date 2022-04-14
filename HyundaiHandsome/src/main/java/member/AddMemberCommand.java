@@ -28,7 +28,7 @@ public class AddMemberCommand implements Command {
 		if (new_name != null) {
 			HttpSession session = request.getSession();  // 현재 세션에 저장된 속성 값 확인
 			MemberVO memberVO = new MemberVO(new_name, new_tel, new_id, new_pwd);  // MemberVO 객체 생성
-			MemberDAO memberDAO = new MemberDAO();  // MemberDAO 객체 생성
+			MemberDAO memberDAO = MemberDAO.getInstance();  // MemberDAO 객체 생성
 			boolean result = memberDAO.addMember(memberVO);  // MEMBER table에 INSERT 수행, 수행 결과를 result에 저장
 			
 			// INSERT 성공할 경우

@@ -33,7 +33,7 @@ public class LoginCommand implements Command {
 			// 사용자가 아이디나 비밀번호를 모두 입력한 경우
 			} else {
 				MemberVO memberVO = new MemberVO(user_id, user_pwd);  // MemberVO 객체 생성
-				MemberDAO memberDAO = new MemberDAO();  // MemberDAO 객체 생성
+				MemberDAO memberDAO = MemberDAO.getInstance();  // MemberDAO 객체 생성
 				boolean result = memberDAO.isExisted(memberVO);  // 아이디와 비밀번호 일치 여부 확인, 결과를 result에 저장
 				
 				// 아이디와 비밀번호가 모두 일치할 경우

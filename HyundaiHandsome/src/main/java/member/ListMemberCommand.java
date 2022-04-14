@@ -19,7 +19,7 @@ public class ListMemberCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		MemberDAO memberDAO = new MemberDAO();  // MemberDAO 객체 생성
+		MemberDAO memberDAO = MemberDAO.getInstance();  // MemberDAO 객체 생성
 		List<MemberVO> memberList = memberDAO.listMember();  // MEMBER table에 SELECT 수행, 수행 결과를 memberList에 저장
 		
 		request.setAttribute("memberList", memberList);  // SELECT문 수행 결과를 request 내장 객체에 바인딩
