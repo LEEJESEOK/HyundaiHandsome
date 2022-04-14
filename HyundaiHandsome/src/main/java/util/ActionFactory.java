@@ -27,7 +27,7 @@ public class ActionFactory {
 	//호출한 URI에 따라 if문으로 Action instance를 가져와 실행한다.
 	public Action getAction(String command) {
 		Action action = null;
-		//ir
+		//ir의 나머지 페이지는 FrontController에서 jsp로 바로 전달.
 		if("/ko/ir/disclosureInfoList.do".equals(command)) {
 			action = new DisclosureListAction();
 		}else if("/ko/ir/irArchiveList.do".equals(command)) {

@@ -95,7 +95,26 @@ public class FrontController extends HttpServlet{
 			
 		} else if(command.equals("/company/wayToCome.do")){  	// COMPANY - 오시는 길
 			page = "/company/wayToCome.jsp";
-		
+		// 혁 - IR 파트에서도 서버에서 처리하는 기능이 없는 부분은 servlet 생략
+		} else if(command.equals("/ir/governance01.do")) {
+			page = "/ir/governance01.jsp";
+		} else if(command.equals("/ir/governance02.do")) {
+			page = "/ir/governance02.jsp";
+		} else if(command.equals("/ir/governance03.do")) {
+			page = "/ir/governance03.jsp";
+		} else if(command.equals("/ir/governance04.do")) {
+			page = "/ir/governance04.jsp";
+		} else if(command.equals("/ir/governance05.do")) {
+			page = "/ir/governance05.jsp";
+		} else if(command.equals("/ir/governance06.do")) {
+			page = "/ir/governance06.jsp";
+		} else if(command.equals("/ir/financialInfo01.do")) {
+			page = "/ir/financialInfo01.jsp";
+		} else if(command.equals("/ir/financialInfo02.do")) {
+			page = "/ir/financialInfo02.jsp";
+		} else if(command.equals("/ir/financialInfo03.do")) {
+			page = "/ir/financialInfo03.jsp";
+		} 
 	/*
 	 ************************************************************* MEMBER
 	 ***** 이지은 작성
@@ -103,7 +122,7 @@ public class FrontController extends HttpServlet{
 	 ***** 세션 존재 여부 및 로그인 여부를 확인 후 로직 수행
 	 ***** 로그인 상태가 아니라면 로그인 화면으로 이동
 	 */
-		} else if(command.equals("/member/login.do")) {			// MEMBER - 로그인
+		 else if(command.equals("/member/login.do")) {			// MEMBER - 로그인
 			// 세션 존재 여부 확인
 			HttpSession session = request.getSession(false);
 			my_command = new LoginCommand();
