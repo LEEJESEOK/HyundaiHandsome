@@ -40,7 +40,7 @@ CREATE TABLE member (
     name VARCHAR2(50) PRIMARY KEY, -- 회원 이름
     tel  VARCHAR2(50) NOT NULL,    -- 회원 연락처
     id   VARCHAR2(50) NOT NULL,    -- 회원 아이디
-    pwd  VARCHAR2(400) NOT NULL     -- 회원 비밀번호 
+    pwd  VARCHAR2(400) NOT NULL    -- 회원 비밀번호 
 );
 
 /***************************************************************************

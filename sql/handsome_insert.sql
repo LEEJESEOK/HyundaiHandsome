@@ -1,15 +1,22 @@
 -- 이지은
 -- MEMBER INSERT
+-- 암호화 전
 --insert into MEMBER values('고석준', '0618', 'seokjun', 'ksj');
 --insert into MEMBER values('문혁', '0130', 'hyuk', 'mh');
 --insert into MEMBER values('이제석', '1203', 'jeseok', 'ljs');
 --insert into MEMBER values('이지은', '0205', 'jieun', 'lje');
-insert into MEMBER values('고석준', '010-0618-0618', 'seokjun', sys.FUNC_ENCRYPT('ksjksj'));
-insert into MEMBER values('문혁', '010-0130-0130', 'hyuk', sys.FUNC_ENCRYPT('mhyuk'));
-insert into MEMBER values('이제석', '010-1203-1203', 'jeseok', sys.FUNC_ENCRYPT('jeseok'));
-insert into MEMBER values('이지은', '010-0205-0205', 'jieun', sys.FUNC_ENCRYPT('jieun'));
-insert into MEMBER values('김진오', '010-7777-7777', 'jinokim', sys.FUNC_ENCRYPT('jino'));
-
+-- 암호화 후
+--insert into MEMBER values('고석준', '010-0618-0618', 'seokjun', sys.FUNC_ENCRYPT('ksjksj'));
+--insert into MEMBER values('문혁', '010-0130-0130', 'hyuk', sys.FUNC_ENCRYPT('mhyuk'));
+--insert into MEMBER values('이제석', '010-1203-1203', 'jeseok', sys.FUNC_ENCRYPT('jeseok'));
+--insert into MEMBER values('이지은', '010-0205-0205', 'jieun', sys.FUNC_ENCRYPT('jieun'));
+--insert into MEMBER values('김진오', '010-7777-7777', 'jinokim', sys.FUNC_ENCRYPT('jino'));
+-- 동의어 생성 후
+insert into MEMBER values('고석준', '010-0618-0618', 'seokjun', ENCRYPT('ksjksj'));
+insert into MEMBER values('문혁', '010-0130-0130', 'hyuk', ENCRYPT('mhyuk'));
+insert into MEMBER values('이제석', '010-1203-1203', 'jeseok', ENCRYPT('jeseok'));
+insert into MEMBER values('이지은', '010-0205-0205', 'jieun', ENCRYPT('jieun'));
+insert into MEMBER values('김진오', '010-7777-7777', 'jinokim', ENCRYPT('jino'));
 
 -- 문혁
 -- DISCLOSURE 테이블 insert

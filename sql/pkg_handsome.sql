@@ -1,3 +1,4 @@
+drop package pkg_handsome;
 CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
 -- 제석
     --  브랜드 정보 select 결과 레코드

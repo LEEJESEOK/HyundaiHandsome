@@ -1043,7 +1043,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
             p_name,
             p_tel,
             p_id,
-            sys.FUNC_ENCRYPT(p_pwd)
+            ENCRYPT(p_pwd)
         );
 
         COMMIT;
@@ -1063,7 +1063,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
             member
         WHERE
                 id = p_id
-            AND SYS.FUNC_DECRYPT(pwd) = p_pwd;
+            AND DECRYPT(pwd) = p_pwd;
 
         RETURN v_login;
     END sf_member_login;
