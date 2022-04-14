@@ -157,7 +157,7 @@ FOR EACH ROW
             BEGIN
                 INSERT INTO HANDSOME_LOG(ID, TABLE_NAME, CRUD, LOG_CONTENT) 
                      VALUES(HANDSOME_LOG_SEQ.NEXTVAL, 'DISCLOSURE', 'INSERT', 
-                            'DISCLOSURE 테이블에 PK가 '|| :new.DISCLOSURE_ID ||'인 데이터가 INSERT 되었습니다.');
+                            'DISCLOSURE 테이블에 PK가 '|| :new.disclosure_ID ||'인 데이터가 INSERT 되었습니다.');
             END;
         ELSIF UPDATING THEN
             BEGIN
