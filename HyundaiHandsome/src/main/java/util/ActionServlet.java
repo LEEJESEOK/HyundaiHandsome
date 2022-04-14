@@ -33,22 +33,14 @@ public class ActionServlet extends HttpServlet{
 	}
 	
 	public void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String command = req.getRequestURI();
-		if(command.contains("/member") || command.contains("/company")) {
+		String command = req.getRequestURI(); 
+		if(command.contains("/member") || command.contains("/company") || command.contains("/ir/governance") || command.contains("/ir/financialInfo")) {
 			FrontController fcontrl = new FrontController();
 			fcontrl.doHandle(req, resp);
 			return;
 		}
 		Action action = actionFactory.getAction(req.getRequestURI());
 		
-		if(action == null) {
-			//ir 페이지는 하드코딩된 jsp들이 많아서 다 서블릿으로 만들지 않고 jsp 호출만 
-			String url = req.getRequestURI().split(".do")[0] +".jsp";
-			System.out.println(" Action 체크 : " +url);
-			//req.getRequestDispatcher(url).forward(req, resp);
-			resp.sendRedirect(url);
-			return; 
-		}
 		action.execute(req, resp);
 	}
 
