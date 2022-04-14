@@ -99,12 +99,15 @@ public class MemberDAO {
 			cstmt.setString(3, id);
 			cstmt.setString(4, pwd);
 			
-			try {
-				cstmt.executeQuery();  // 쿼리 실행
-				result = true;  // INSERT 성공 여부 저장
-					
-			} catch(SQLException e) {
-				System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+			// 암호화 및 복호화를 위해 4자리 이상의 비밀번호만 INSERT 가능
+			if (pwd.length() >= 4) {
+				try {
+					cstmt.executeQuery();  // 쿼리 실행
+					result = true;  // INSERT 성공 여부 저장
+						
+				} catch(SQLException e) {
+					System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+				}
 			}
 		} catch (SQLException e) {
             e.printStackTrace();
