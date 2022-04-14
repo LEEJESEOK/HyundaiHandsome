@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebFilter;
 
 /**
  * Servlet Filter implementation class EncodingFilter
+ * brand 디렉토리 한글 인코딩 필터
  */
 @WebFilter("/brand/*")
 public class EncodingFilter implements Filter {
