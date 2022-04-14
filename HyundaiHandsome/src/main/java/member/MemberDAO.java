@@ -21,12 +21,20 @@ import util.DBManager;
  */
 
 public class MemberDAO {
+	
 	private Connection con;
 	private CallableStatement cstmt;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-
-	public MemberDAO() {}
+	
+	// Singleton Pattern 적용
+	private MemberDAO() {}
+	
+	private static MemberDAO instance = new MemberDAO();
+	
+	public static MemberDAO getInstance() {
+		return instance;
+	}
 	
 	// 로그인 요청 시, 아이디와 비밀번호 일치 여부를 확인하는 메서드
 	public boolean isExisted(MemberVO memberVO) {
