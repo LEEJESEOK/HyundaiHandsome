@@ -141,6 +141,86 @@ CREATE OR REPLACE VIEW vw_dis_desc AS
     );
 
 /***************************************************************************
+트리거 : LOG_DISCLOSURE
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05   문혁   1. 최초작성
+***************************************************************************/
+CREATE OR REPLACE TRIGGER LOG_DISCLOSURE
+AFTER INSERT OR UPDATE OR DELETE ON DISCLOSURE
+FOR EACH ROW
+    BEGIN
+        IF INSERTING THEN
+            BEGIN
+                INSERT INTO HANDSOME_LOG(ID, TABLE_NAME, CRUD, LOG_CONTENT) 
+                     VALUES(HANDSOME_LOG_SEQ.NEXTVAL, 'DISCLOSURE', 'INSERT', 
+                            'DISCLOSURE 테이블에 PK가 '|| :new.DISCLOSURE_ID ||'인 데이터가 INSERT 되었습니다.');
+            END;
+        ELSIF UPDATING THEN
+            BEGIN
+                INSERT INTO HANDSOME_LOG(ID,TABLE_NAME, CRUD, LOG_CONTENT)
+                     VALUES(HANDSOME_LOG_SEQ.NEXTVAL, 'DISCLOSURE', 'UPDATE', 
+                            'DISCLOSURE 테이블에 pk가 '|| :old.DISCLOSURE_ID ||'인 데이터가 UPDATE 되었습니다. '||
+                            'DISCLOSURE_NAME : '|| :old.DISCLOSURE_NAME || ' to ' || :new.DISCLOSURE_NAME ||
+                            ' PRESENTER : '|| :old.PRESENTER || ' to ' || :new.PRESENTER ||
+                            ' INDATE : ' || :old.INDATE || ' to ' || :new.INDATE ||
+                            ' URL : ' || :old.URL || ' to ' || :new.URL);
+            END;
+        ELSIF DELETING THEN
+            BEGIN
+                INSERT INTO HANDSOME_LOG(ID,TABLE_NAME, CRUD, LOG_CONTENT) 
+                     VALUES(HANDSOME_LOG_SEQ.NEXTVAL,'DISCLOSURE', 'DELETE', 
+                            'DISCLOSURE 테이블에 pk가 ' || :old.DISCLOSURE_ID||' 인 데이터가 DELETE 되었습니다. '||
+                            ' 삭제된 데이터 내용'||CHR(10)||CHR(13)||
+                            ' DISCLOSURE_NAME : ' || :old.DISCLOSURE_NAME || 
+                            ' PRESENTER : ' || :old.PRESENTER || 
+                            ' INDATE : ' || :old.INDATE ||
+                            ' URL : ' || :old.URL);
+            END;
+        END IF;
+    END LOG_DISCLOSURE;
+
+/***************************************************************************
+트리거 : LOG_IR_PDF
+프로그램 명 : 
+----------------------------------------------------------------------------
+----  ----------  ------  --------------------------------------------------    
+버전    작업일자    작성자   Description
+----  ----------  ------  --------------------------------------------------
+1.0   2022-04-05   문혁   1. 최초작성
+***************************************************************************/
+CREATE OR REPLACE TRIGGER LOG_IR_PDF
+AFTER INSERT OR UPDATE OR DELETE ON IR_PDF
+FOR EACH ROW
+    BEGIN
+        IF INSERTING THEN
+            BEGIN
+                INSERT INTO HANDSOME_LOG(ID, TABLE_NAME, CRUD, LOG_CONTENT) 
+                     VALUES(HANDSOME_LOG_SEQ.NEXTVAL, 'IR_PDF', 'INSERT', 
+                            'IR_PDF 테이블에 PK가 '|| :new.ID ||'인 데이터가 INSERT 되었습니다.');
+            END;
+        ELSIF UPDATING THEN
+            BEGIN
+                INSERT INTO HANDSOME_LOG(ID,TABLE_NAME, CRUD, LOG_CONTENT)
+                     VALUES(HANDSOME_LOG_SEQ.NEXTVAL, 'IR_PDF', 'UPDATE', 
+                            'IR_PDF 테이블에 pk가 '|| :old.ID ||'인 데이터가 UPDATE 되었습니다. '||
+                            'FILE_NAME : '|| :old.FILE_NAME || ' to ' || :new.FILE_NAME);
+            END;
+        ELSIF DELETING THEN
+            BEGIN
+                INSERT INTO HANDSOME_LOG(ID,TABLE_NAME, CRUD, LOG_CONTENT) 
+                     VALUES(HANDSOME_LOG_SEQ.NEXTVAL,'IR_PDF', 'DELETE', 
+                            'IR_PDF 테이블에 pk가 ' || :old.ID||' 인 데이터가 DELETE 되었습니다. '||
+                            ' 삭제된 데이터 내용'||CHR(10)||CHR(13)||
+                            ' FILE_NAME : ' || :old.FILE_NAME);
+            END;
+        END IF;
+    END LOG_IR_PDF;
+
+/***************************************************************************
 테이블 : BRAND
 프로그램 명 : 
 ----------------------------------------------------------------------------
