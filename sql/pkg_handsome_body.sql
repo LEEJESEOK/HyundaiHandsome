@@ -408,6 +408,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
             WHERE
                     rnum >= 1 + ( p_indexpage - 1 ) * 8
                 AND rnum <= 8 * p_indexpage
+                order by collection_id desc
         ) LOOP
             v_rslt := select_collection_list_type(list_cur.rnum, list_cur.collection_id, list_cur.season_cd, list_cur.name, list_cur.
             thumnail_id,
