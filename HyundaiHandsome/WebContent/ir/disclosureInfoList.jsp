@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
@@ -26,6 +26,11 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/cmmn.js"></script>
     <script src="../js/swiper.min.js"></script>
+	<link rel="icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="${contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+	<link rel="icon" href="${contextPath}/images/common/favicon-32x32.png" sizes="32x32" type="image/png" />
+	<link rel="icon" href="${contextPath}/images/common/favicon-16x16.png" sizes="16x16" type="image/png" />
     <!-- <script src="../js/js.js"></script> -->
 </head>
 <body>

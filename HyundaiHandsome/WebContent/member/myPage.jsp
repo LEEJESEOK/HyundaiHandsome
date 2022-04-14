@@ -20,16 +20,17 @@
 	    <script src="${contextPath}/js/jquery-3.5.1.min.js"></script>
 	    <script src="${contextPath}/js/swiper.min.js"></script>
 	    <script src="${contextPath}/js/js.js"></script>
-		<link rel="icon" href="${contextPath}/images/favicon.ico" type="image/x-icon">
-		<link rel="shortcut icon" href="${contextPath}/images/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${contextPath}/images/apple-touch-icon.png" sizes="180x180">
-		<link rel="icon" href="${contextPath}/images/favicon-32x32.png" sizes="32x32" type="image/png">
-		<link rel="icon" href="${contextPath}/images/favicon-16x16.png" sizes="16x16" type="image/png">
+		<link rel="icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="${contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+		<link rel="icon" href="${contextPath}/images/common/favicon-32x32.png" sizes="32x32" type="image/png" />
+		<link rel="icon" href="${contextPath}/images/common/favicon-16x16.png" sizes="16x16" type="image/png" />
 	</head>
 	<body>
 		<div class="wrap">
 			<%@ include file="../header.jsp"%>
 			<br><br><br><br><br><br><br><br><h1 style="font-size: 40px; text-align: center;">MY PAGE</h1><br><br><br><br>
+			<!-- 이지은 작성: 마이페이지 -->
 			<div class="section box">
 				<h3 class="tit_subH3">내 정보</h3>
 				<div id="discList" class="box mN30">

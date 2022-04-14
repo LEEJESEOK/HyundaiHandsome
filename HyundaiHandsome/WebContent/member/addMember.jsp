@@ -20,11 +20,11 @@
 	    <script src="${contextPath}/js/jquery-3.5.1.min.js"></script>
 	    <script src="${contextPath}/js/swiper.min.js"></script>
 	    <script src="${contextPath}/js/js.js"></script>
-		<link rel="icon" href="${contextPath}/images/favicon.ico" type="image/x-icon">
-		<link rel="shortcut icon" href="${contextPath}/images/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${contextPath}/images/apple-touch-icon.png" sizes="180x180">
-		<link rel="icon" href="${contextPath}/images/favicon-32x32.png" sizes="32x32" type="image/png">
-		<link rel="icon" href="${contextPath}/images/favicon-16x16.png" sizes="16x16" type="image/png">
+		<link rel="icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="${contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+		<link rel="icon" href="${contextPath}/images/common/favicon-32x32.png" sizes="32x32" type="image/png" />
+		<link rel="icon" href="${contextPath}/images/common/favicon-16x16.png" sizes="16x16" type="image/png" />
 	</head>
 	<body>
 		<div class="wrap">
@@ -67,6 +67,7 @@
 					</ul>
 				</div>
 			</div>
+			<!-- 이지은 작성: 관리자 추가 FORM -->
 			<div id = "add_wrapper">
 				<form name="frmAdd" method="post" action="${contextPath}/member/addMember.do" encType="UTF-8">
 					<h4>이름</h4>

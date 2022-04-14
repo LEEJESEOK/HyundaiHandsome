@@ -16,20 +16,25 @@ request.setCharacterEncoding("UTF-8");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/font.css">
-    <link rel="stylesheet" href="../css/ko_common.css">
-    <link rel="stylesheet" href="../css/ko_style.css">
-    <link rel="stylesheet" href="../css/swiper.min.css">
-    <script src="../js/jquery-3.5.1.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/cmmn.js"></script>
-   
-    <script src="../js/swiper.min.js"></script>
-    <!-- <script src="../js/js.js"></script> -->
+    <title>한섬 ｜ HANDSOME Corp.</title>
+    <meta name="description" content="삶의 모든 영역에서 아름다운 경험을 제공하는 스타일 크리에이터, 한섬"/>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <link rel="stylesheet" href="${contextPath}/css/font.css">
+    <link rel="stylesheet" href="${contextPath}/css/ko_common.css">
+    <link rel="stylesheet" href="${contextPath}/css/ko_style.css">
+    <link rel="stylesheet" href="${contextPath}/css/swiper.min.css">
+    <script src="${contextPath}/js/bootstrap.js"></script>
+    <script src="${contextPath}/js/cmmn.js"></script>
+    <script src="${contextPath}/js/jquery-3.5.1.min.js"></script>
+    <script src="${contextPath}/js/swiper.min.js"></script>
+    <script src="${contextPath}/js/js.js"></script>
+	<link rel="icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="${contextPath}/images/common/apple-touch-icon.png" sizes="180x180" />
+	<link rel="icon" href="${contextPath}/images/common/favicon-32x32.png" sizes="32x32" type="image/png" />
+	<link rel="icon" href="${contextPath}/images/common/favicon-16x16.png" sizes="16x16" type="image/png" />
 </head>
 <body>
     <div class="wrap">
