@@ -43,6 +43,7 @@ request.setCharacterEncoding("UTF-8");
 	    google.charts.setOnLoadCallback(drawChart);
 	
 	    function drawChart() {
+	    	console.log('fddsfsd');
 	      //시즌별 collection 수
 	      var data = new google.visualization.DataTable();
 	      
@@ -51,6 +52,7 @@ request.setCharacterEncoding("UTF-8");
 	      	var list = new Array();
 	      	list.push("${item.statCd}");
 	      	list.push(${item.count});
+	      	
 	      	
 	      	rowslist.push(list);
 	      </c:forEach>
@@ -119,7 +121,7 @@ request.setCharacterEncoding("UTF-8");
 					<div class="data"><c:set var="nowDate"><fmt:formatDate value="${now}" pattern="yyyy.MM.dd" /> 기</c:set></div>
 				</div>
 				<div class="viewBody">
-					<div id="barchart_div" style="border: 1px solid #ccc">
+					<div id="barchart_div" style="border: 1px solid #ccc; height: 600px;">
 						
 					</div>
 					<div id="barchart_div2" style="border: 1px solid #ccc; height: 600px;">
