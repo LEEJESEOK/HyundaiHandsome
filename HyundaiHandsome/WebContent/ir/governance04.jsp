@@ -5,7 +5,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-
+<!-- 
+작성자 : 문혁
+설명  : 기업지배구조 페이지4. 파일다운로드 추가
+ -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>

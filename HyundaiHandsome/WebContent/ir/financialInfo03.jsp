@@ -5,7 +5,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-
+<!-- 
+작성자 : 문혁
+설명  : 재무정보 페이지3. 테이블 내용 하드코딩
+ -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>

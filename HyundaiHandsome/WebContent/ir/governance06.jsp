@@ -5,7 +5,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-
+<!-- 
+작성자 : 문혁
+설명  : 기업지배구조 페이지6. 파일다운로드 추가
+ -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -126,7 +129,7 @@
 							</div>
 							<h3 class="tit_subH3">2021년 UN SDGBI 국내 최우수 그룹 선정</h3>
 							<div class="unSdgbi">
-								<img src="/ko/images/ir/ir_img03.jpg?dt=20211122_1 " alt="2020 SDGBI Sustainable Development Goals Business Index">
+								<img src="../images/ir/ir_img03.jpg?dt=20211122_1 " alt="2020 SDGBI Sustainable Development Goals Business Index">
 								<p>
 									한섬은 UN SDGs협회가 주관하는<br>
 									UN SDGBI (Sustainable Development Goals<br>

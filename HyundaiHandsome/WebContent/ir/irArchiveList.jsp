@@ -5,7 +5,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-
+<!-- 
+작성자 : 문혁
+설명  : IR파트 pdf 다운로드 페이지.  
+ -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -49,6 +52,7 @@
 							<div id="" class="birAreax">
 								<div class="pdfBoard_list">
 									<ul>
+										<!-- pageIndex에 따른 표시할 파일 목록 구분 -->
 										<c:if test="${param.pageIndex == null || param.pageIndex == '1' }">
 										<li>
 											<div class="pdfBox">
