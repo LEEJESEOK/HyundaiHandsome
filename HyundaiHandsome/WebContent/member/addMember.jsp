@@ -3,12 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}" />
-<%
-	String new_name = request.getParameter("new_name");
-	String new_tel = request.getParameter("new_tel");
-	String new_id = request.getParameter("new_id");
-	String new_pwd = request.getParameter("new_pwd");
-%>  
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -69,12 +63,12 @@
 					<ul class="nav nav-tabs nav-justified rootTab">
 						<li><a href="${contextPath}/member/listMember.do">관리자 목록</a></li>
 						<li class="on"><a href="${contextPath}/member/addMember.do">관리자 추가</a></li>
-						<li><a href="${contextPath}/member/manageMedia.do">MEDIA UPLOAD</a></li>
+						<li><a href="${contextPath}/member/manageMedia.do">MEDIA 관리</a></li>
 					</ul>
 				</div>
 			</div>
 			<div id = "add_wrapper">
-				<form name="frmAdd" method="post" action="/ko/member/addMember.do" encType="UTF-8">
+				<form name="frmAdd" method="post" action="${contextPath}/member/addMember.do" encType="UTF-8">
 					<h4>이름</h4>
 					<input type="text" placeholder="이름 입력" name="new_name" maxlength="20"><br><br>
 					<h4>연락처</h4>

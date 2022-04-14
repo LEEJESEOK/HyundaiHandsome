@@ -3,11 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}"  />
-<%
- 	request.setCharacterEncoding("UTF-8");
-	String user_id = request.getParameter("user_id");
-	String user_pwd = request.getParameter("user_pwd");
-%>  
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -63,7 +58,7 @@
 			<%@ include file="../header.jsp"%>
 			<br><br><br><br><br><br><br><br><h1> Welcome to HANDSOME </h1><br><br>
 			<div id = "login_wrapper">
-				<form name="frmLogin" method="post" action="/ko/member/login.do" encType="UTF-8">
+				<form name="frmLogin" method="post" action="${contextPath}/member/login.do" encType="UTF-8">
 					<h4>아이디</h4>
 					<input type="text" placeholder="아이디 입력" name="user_id" maxlength="20">
 					<br><br>

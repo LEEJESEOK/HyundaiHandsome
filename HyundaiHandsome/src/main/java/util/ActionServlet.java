@@ -35,7 +35,6 @@ public class ActionServlet extends HttpServlet{
 	public void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String command = req.getRequestURI();
 		if(command.contains("/member") || command.contains("/company")) {
-			System.out.println("sdfsdf" + command);
 			FrontController fcontrl = new FrontController();
 			fcontrl.doHandle(req, resp);
 			return;
