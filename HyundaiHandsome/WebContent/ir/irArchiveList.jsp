@@ -190,6 +190,7 @@
 									</ul>
 								</div>
 							</div>
+							<!-- pageIndex에 따른 페이지 구분 -->
 							<div class="hs-row page-pagination align-center"><!-- page the number -->
 								<ul class="pagination">
 									<c:if test="${param.pageIndex == null || param.pageIndex == '1' }"> 
