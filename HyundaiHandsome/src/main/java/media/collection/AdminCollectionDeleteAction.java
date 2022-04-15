@@ -1,6 +1,7 @@
 package media.collection;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,9 +26,19 @@ public class AdminCollectionDeleteAction implements Action {
 		// TODO Auto-generated method stub
 		CollectionDAO collectionDao = CollectionDAO.getIntance();
 		
-		collectionDao.deleteCollection(request.getParameter("id"));
-		RequestDispatcher rd = request.getRequestDispatcher("/media/adminCollectionList.do");
-		rd.forward(request, response);//삭제 완료 후 CollectionList 화면으로 이동 
+		boolean flag = collectionDao.deleteCollection(request.getParameter("id"));
+		
+		if(flag == false) {
+			my_alert(response, "Collection Delete Fail","/ko/media/adminCollectionList.do");
+		}else {
+			my_alert(response, "Collection Delete Success","/ko/media/adminCollectionList.do");
+		}
+	}
+	private void my_alert(HttpServletResponse response, String message, String page) throws IOException {
+		PrintWriter out = response.getWriter();
+		out.printf("<script>alert('%s'); location.href='%s';</script>", message, page);
+		out.flush();
+	
 	}
 
 }

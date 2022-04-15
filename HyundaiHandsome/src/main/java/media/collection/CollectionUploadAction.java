@@ -2,6 +2,7 @@ package media.collection;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +26,7 @@ import util.Action;
  	   */
 public class CollectionUploadAction implements Action{
 	// 이 path는 WAS 프로젝트의 위치에 맞춰줘야함.
-	private final String filePath = "C:\\MVC_workspaces\\HyundaiHandsome\\HyundaiHandsome\\WebContent\\images\\media\\collection"; 
+	private final String filePath = "/Users/ksj/HyundaiHandsome/HyundaiHandsome/WebContent/images/media/collection"; 
 	private static CollectionUploadAction instacne = new CollectionUploadAction();
 	private CollectionUploadAction() {}
 	public static CollectionUploadAction getInstacne() {
@@ -52,6 +53,7 @@ public class CollectionUploadAction implements Action{
 	
 	private void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
 			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("utf-8");
 			String encoding = "utf-8";
 			File currentDirPath = new File(filePath);
 			//업로드 파일 위치 지정 
@@ -107,13 +109,20 @@ public class CollectionUploadAction implements Action{
 						entrySet.getKey().write(entrySet.getValue());//file업로드 
 					}
 					
+				}else {
+					my_alert(response, "Collection Upload Fail.","/ko/media/collectionUpload.do");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			my_alert(response, "Collection Upload Success.","/ko/media/collectionList.do");
 			
-			response.sendRedirect("/ko/media/collectionUpload.do");
+//			response.sendRedirect("/ko/media/collectionUpload.do");
+	}
+	private void my_alert(HttpServletResponse response, String message, String page) throws IOException {
+		PrintWriter out = response.getWriter();
+		out.printf("<script>alert('%s'); location.href='%s';</script>", message, page);
+		out.flush();
 	}
 	
 }
-	
