@@ -2,6 +2,7 @@ package media.news;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -23,7 +24,7 @@ import util.Action;
 */
 public class NewsUploadAction implements Action{
 	// 이 path는 WAS 프로젝트의 위치에 맞춰줘야함.
-	private final String filePath = "C:\\MVC_workspaces\\HyundaiHandsome\\HyundaiHandsome\\WebContent\\images\\media\\news";
+	private final String filePath = "/Users/ksj/HyundaiHandsome/HyundaiHandsome/WebContent/images/media/news";
 	private static NewsUploadAction instance = new NewsUploadAction();
 	
 	public static NewsUploadAction getInstance() {
@@ -93,37 +94,27 @@ public class NewsUploadAction implements Action{
 			}
 			boolean done = NewsDAO.getInstance().insertNews(news);
 			if(done) {
+				System.out.println("news insert");
 				for(Entry<FileItem,File>entrySet : fileMap.entrySet()) {
 					entrySet.getKey().write(entrySet.getValue());//file업로드
+					System.out.println(entrySet.getKey());
 				}
+			}else {
+				my_alert(response, "News Upload Fail", "/ko/media/newsUpload.do");
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		response.sendRedirect("/ko/media/newsUpload.do");
+		my_alert(response, "News Upload Success", "/ko/media/newsList.do");
+		//
+//		response.sendRedirect("/ko/media/newsUpload.do");
 	}
 	
-
+	private void my_alert(HttpServletResponse response, String message, String page) throws IOException {
+		PrintWriter out = response.getWriter();
+		out.printf("<script>alert('%s'); location.href='%s';</script>", message, page);
+		out.flush();
 	
+	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
