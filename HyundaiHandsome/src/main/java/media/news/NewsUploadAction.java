@@ -23,7 +23,7 @@ import util.Action;
 */
 public class NewsUploadAction implements Action{
 	// 이 path는 WAS 프로젝트의 위치에 맞춰줘야함.
-	private final String filePath = "C:\\dev\\hyundaiHandsome/HyundaiHandsome/WebContent/images/media/news";
+	private final String filePath = "C:\\MVC_workspaces\\HyundaiHandsome\\HyundaiHandsome\\WebContent\\images\\media\\news";
 	private static NewsUploadAction instance = new NewsUploadAction();
 	
 	public static NewsUploadAction getInstance() {

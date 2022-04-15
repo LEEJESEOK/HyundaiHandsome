@@ -26,9 +26,9 @@
     <link rel="stylesheet" href="${contextPath}/css/ko_common.css">
     <link rel="stylesheet" href="${contextPath}/css/ko_style.css">
     <link rel="stylesheet" href="${contextPath}/css/swiper.min.css">
+    <script src="${contextPath}/js/jquery-3.5.1.min.js"></script>
     <script src="${contextPath}/js/bootstrap.js"></script>
     <script src="${contextPath}/js/cmmn.js"></script>
-    <script src="${contextPath}/js/jquery-3.5.1.min.js"></script>
     <script src="${contextPath}/js/swiper.min.js"></script>
     <script src="${contextPath}/js/js.js"></script>
 	<link rel="icon" href="${contextPath}/images/common/favicon.ico" type="image/x-icon" />
