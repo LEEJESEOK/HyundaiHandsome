@@ -1,5 +1,4 @@
-drop package pkg_handsome;
-CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
+create or replace PACKAGE "PKG_HANDSOME" AS
 -- 제석
     --  브랜드 정보 select 결과 레코드
     TYPE select_brand_type IS RECORD (
@@ -16,7 +15,7 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
     -- 브랜드 정보 select 결과 테이블
     TYPE select_brand_table IS
         TABLE OF select_brand_type;
-        
+
     -- 브랜드 정보 테이블 insert 프로시저
     PROCEDURE sp_insert_brand (
         p_type        brand_type.name%TYPE,
@@ -36,7 +35,7 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
         p_mall_type   brand_type.name%TYPE,
         p_mall_id     brand.mall_id%TYPE
     );
-    
+
     -- 브랜드 정보 테이블 delete 프로시저
     PROCEDURE sp_delete_brand (
         p_id brand.id%TYPE
@@ -136,7 +135,6 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
 
 --1. OBJECT 타입 생성
     TYPE select_collection_list_type IS RECORD (
-        rnum          NUMBER,
         collection_id NUMBER,
         season_cd     VARCHAR2(100),
         name          VARCHAR2(100),
@@ -192,6 +190,9 @@ CREATE OR REPLACE PACKAGE "PKG_HANDSOME" AS
         v_brand_name IN collection.name%TYPE,
         v_file_name  IN image.id%TYPE,
         v_thumnail   IN INT
+    );
+    PROCEDURE P_COLLECTION_DELETE(
+        P_COLLECTION_ID IN COLLECTION.ID%TYPE
     );
 
     PROCEDURE p_news_delete (

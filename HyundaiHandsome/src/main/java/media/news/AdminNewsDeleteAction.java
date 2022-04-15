@@ -24,7 +24,7 @@ public class AdminNewsDeleteAction implements Action {
 		// TODO Auto-generated method stub
 		NewsDAO newsDao = NewsDAO.getInstance();
 		newsDao.deleteNews(request.getParameter("id"));
-		RequestDispatcher rd = request.getRequestDispatcher("/media/adminCollectionList.do");
+		RequestDispatcher rd = request.getRequestDispatcher("/media/adminNewsList.do");
 		rd.forward(request, response);
 		
 	}

@@ -25,7 +25,7 @@ import util.Action;
  	   */
 public class CollectionUploadAction implements Action{
 	// 이 path는 WAS 프로젝트의 위치에 맞춰줘야함.
-	private final String filePath = "C:\\dev\\hyundaiHandsome/HyundaiHandsome/WebContent/images/media/collection"; 
+	private final String filePath = "C:\\MVC_workspaces\\HyundaiHandsome\\HyundaiHandsome\\WebContent\\images\\media\\collection"; 
 	private static CollectionUploadAction instacne = new CollectionUploadAction();
 	private CollectionUploadAction() {}
 	public static CollectionUploadAction getInstacne() {

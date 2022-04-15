@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
+create or replace PACKAGE BODY "PKG_HANDSOME" AS
 -- 제석
     -- 브랜드 정보 테이블 insert 프로시저
     PROCEDURE sp_insert_brand (
@@ -191,7 +191,7 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
             PIPE ROW ( v_brand_row );
         END LOOP;
     END;
-    
+
     -- mall_type id 검색 함수
     -- param : mall_type.name
     -- return : mall_type.id
@@ -377,40 +377,37 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
         v_rslt select_collection_list_type;
     BEGIN
         FOR list_cur IN (
-            SELECT
-                *
-            FROM
-                (
-                    SELECT
-                        ROWNUM   AS rnum,
-                        a.id     AS collection_id,
-                        a.season_cd,
-                        a.name,
-                        b.id     AS thumnail_id,
-                        b.uri,
-                        COUNT(*) AS count
-                    FROM
-                        collection a,
-                        image      b
-                    WHERE
-                            a.thumnail_id = b.id
-                        AND a.name LIKE decode(p_brandname, NULL, '%', p_brandname)
-                    GROUP BY
-                        a.id,
-                        a.season_cd,
-                        a.name,
-                        b.id,
-                        b.uri,
-                        ROWNUM
-                    ORDER BY
-                        ROWNUM
-                )
-            WHERE
-                    rnum >= 1 + ( p_indexpage - 1 ) * 8
-                AND rnum <= 8 * p_indexpage
-                order by collection_id desc
+        select  collection_id, season_cd, name, thumnail_id, uri, count
+        from (select rownum as rnum, collection_id, season_cd, name, thumnail_id, uri, count
+        from(
+        SELECT
+                                
+                                a.id     AS collection_id,
+                                a.season_cd,
+                                a.name,
+                                b.id     AS thumnail_id,
+                                b.uri,
+                                COUNT(*) AS count
+                            FROM
+                                collection a,
+                                image      b
+                            WHERE
+                                    a.thumnail_id = b.id
+                                AND a.name LIKE decode(p_brandname, NULL, '%', p_brandname)
+                            GROUP BY
+                                a.id,
+                                a.season_cd,
+                                a.name,
+                                b.id,
+                                b.uri
+                                
+                            ORDER BY
+                                a.id desc))
+                                where  rnum >= 1 + ( p_indexpage - 1 ) * 8
+                        AND rnum <= 8 * p_indexpage
+                        
         ) LOOP
-            v_rslt := select_collection_list_type(list_cur.rnum, list_cur.collection_id, list_cur.season_cd, list_cur.name, list_cur.
+            v_rslt := select_collection_list_type(list_cur.collection_id, list_cur.season_cd, list_cur.name, list_cur.
             thumnail_id,
                                                  list_cur.uri, list_cur.count);
 
@@ -758,6 +755,63 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
 
         COMMIT;
     END;
+    PROCEDURE P_COLLECTION_DELETE(
+        P_COLLECTION_ID IN COLLECTION.ID%TYPE
+    )
+    IS
+    /*
+        프로그램 ID : P_COLLECTION_DELETE
+        프로그램 명 : Collection 삭제
+        ----------------------------------------------------------------------------
+        실행
+        CALL P_COLLECTION_DELETE(10); 
+        ****************************************************************************
+        REVISIONS
+        ----  ----------  ------  --------------------------------------------------    
+        버전   작업일자      작성자    Description
+        ----  ----------  ------  --------------------------------------------------
+        1.0   2022-04012 고석준  1. 최초작성
+    */
+        V_THUMNAIL_ID IMAGE.ID%TYPE;
+        V_IMAGE_ID IMAGE.ID%TYPE;
+    
+        CURSOR CUR1
+        IS
+        SELECT IMAGE_ID
+          FROM COLLECTION_IMAGES
+         WHERE COLLECTION_ID = P_COLLECTION_ID;
+    
+    BEGIN
+        BEGIN
+            SELECT THUMNAIL_ID INTO V_THUMNAIL_ID
+              FROM COLLECTION
+             WHERE ID = P_COLLECTION_ID;
+    
+            OPEN CUR1;
+            LOOP FETCH CUR1 INTO V_IMAGE_ID;
+            EXIT WHEN CUR1%NOTFOUND;
+    
+            BEGIN
+                DELETE COLLECTION_IMAGES
+                 WHERE IMAGE_ID = V_IMAGE_ID;
+                DELETE IMAGE
+                 WHERE ID = V_IMAGE_ID;
+                EXCEPTION WHEN OTHERS THEN
+                    RAISE_APPLICATION_ERROR(-20002,'P_COLLECTION_DELETE 에서 collection_images 삭제 시 에러 발생!! '||SQLERRM);
+                    RETURN;
+    
+            END;
+            END LOOP;
+    
+            DELETE COLLECTION
+             WHERE ID = P_COLLECTION_ID;
+            DELETE IMAGE
+             WHERE ID = V_THUMNAIL_ID;
+            EXCEPTION WHEN OTHERS THEN
+                RAISE_APPLICATION_ERROR(-20001,'P_COLLECTION_DELETE 에서 collection 삭제 시 에러 발생!! '||SQLERRM);
+                RETURN;
+        END;
+    END;
 
     PROCEDURE p_news_delete (
         p_id news.id%TYPE
@@ -1096,4 +1150,3 @@ CREATE OR REPLACE PACKAGE BODY "PKG_HANDSOME" AS
 
 END pkg_handsome;
 /
-commit;
